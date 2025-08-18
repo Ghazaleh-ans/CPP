@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:52:18 by gansari           #+#    #+#             */
-/*   Updated: 2025/06/20 19:00:50 by gansari          ###   ########.fr       */
+/*   Updated: 2025/08/18 15:40:00 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
+#include <cctype>
 
 class PhoneBook
 {
