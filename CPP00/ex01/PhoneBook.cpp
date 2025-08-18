@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:52:07 by gansari           #+#    #+#             */
-/*   Updated: 2025/06/20 18:14:15 by gansari          ###   ########.fr       */
+/*   Updated: 2025/08/18 15:39:47 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,15 +108,15 @@ void PhoneBook::searchContacts()
 
 	std::string input = getInputFromUser("\nEnter contact index to display: ");
 
-	int index;
-	try
+	for (size_t i = 0; i < input.length(); ++i)
 	{
-		index = std::stoi(input);
+		if (!std::isdigit(input[i]))
+		{
+			std::cout << "Error: Invalid index format." << std::endl;
+			return;
+		}
 	}
-	catch (const std::exception& e)
-	{
-		std::cout << "Error: Invalid index format." << std::endl;
-		return;
-	}
+
+	int index = std::atoi(input.c_str());
 	displayFullContact(index);
 }
