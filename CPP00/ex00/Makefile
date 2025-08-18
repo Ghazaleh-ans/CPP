@@ -10,9 +10,10 @@ CYAN	= "\033[36m"
 WHITE	= "\033[37m"
 
 # Emojis
-SUCCESS	= "✅"
-BUILD	= "🔨"
-Clean	= "🧹"
+SUCCESS	= ✅
+BUILD	= 🔨
+CLEAN	= 🧹
+FCLEAN	= 🧼
 
 # Compiler
 NAME		= megaphone
@@ -41,7 +42,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo $(CLEAN) $(YELLOW) "Full Cleaned!" $(RESET)
+	@echo $(FCLEAN) $(YELLOW) "Full Cleaned!" $(RESET)
 
 re: fclean all
 
