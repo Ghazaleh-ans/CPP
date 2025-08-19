@@ -16,18 +16,18 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= Zombie
+NAME		= zombie
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
+SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= zombie.hpp
+HEADERS	= Zombie.hpp
 
 
 all: $(NAME)
