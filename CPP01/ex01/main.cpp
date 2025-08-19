@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 18:06:46 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/19 18:35:31 by gansari          ###   ########.fr       */
+/*   Updated: 2025/08/19 18:44:02 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main()
 	else
 	{
 		std::cerr << "Failed to create zombie horde." << std::endl;
+		return 1;
 	}
 
 	return 0;
