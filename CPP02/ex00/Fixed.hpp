@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:55:41 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/27 16:12:05 by gansari          ###   ########.fr       */
+/*   Updated: 2025/08/27 17:05:48 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,5 @@ public:
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 };
+
+#endif
