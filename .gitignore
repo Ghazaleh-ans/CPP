@@ -1,3 +1,8 @@
 .vscode
 .DS_Store
 CPP-Modules-master
+en.subject.pdf
+*.o
+*.obj
+*.out
+CLAUDE.md
