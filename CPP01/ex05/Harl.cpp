@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:32:26 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/20 18:33:52 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/03 13:13:14 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Harl::~Harl()
 {
 }
 
-void Harl::complain(const std::string &level)
+void Harl::complain(const std::string level)
 {
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Harl::*functions[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
