@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 20:35:48 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/19 20:37:42 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/03 12:30:14 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include <string>
 #include <iostream>
 
-class Weapon {
+class Weapon
+{
 private:
 	std::string type;
 public:
