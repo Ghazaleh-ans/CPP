@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 15:25:37 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/20 15:44:25 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/03 12:35:58 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include <fstream>
 #include <iostream>
 
-class FileReplacer {
+class FileReplacer
+{
 private:
 	std::string _filename;
 	std::string _s1;

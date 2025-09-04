@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 17:30:32 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/20 17:50:18 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/03 13:22:01 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include <iostream>
 #include <string>
 
-class Harl {
+class Harl
+{
 public:
 	Harl();
 	~Harl();
-	void complain(const std::string &level);
+	void complain(const std::string level);
 private:
 	void debug();
 	void info();
