@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 15:28:22 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/20 15:44:56 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/03 12:44:42 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ FileReplacer::~FileReplacer()
 {
 }
 
-bool FileReplacer::process() const {
+bool FileReplacer::process() const
+{
 	std::ifstream infile(_filename.c_str());
 	if (!infile.is_open()) {
 		std::cerr << "Error: could not open input file: " << _filename << std::endl;
@@ -54,12 +55,14 @@ bool FileReplacer::process() const {
 	return true;
 }
 
-std::string FileReplacer::replaceAll(const std::string &line) const {
+std::string FileReplacer::replaceAll(const std::string &line) const
+{
 	std::string result;
 	size_t pos = 0;
 	size_t found;
 
-	while ((found = line.find(_s1, pos)) != std::string::npos) {
+	while ((found = line.find(_s1, pos)) != std::string::npos)
+	{
 		result.append(line.substr(pos, found - pos));
 		result.append(_s2);
 		pos = found + _s1.length();

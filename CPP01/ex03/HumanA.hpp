@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 20:45:47 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/19 23:39:23 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/03 12:17:48 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <string>
 #include <iostream>
 
-class HumanA {
+class HumanA
+{
 private:
 	std::string name;
 	Weapon &weapon;
