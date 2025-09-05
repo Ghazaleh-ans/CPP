@@ -6,11 +6,13 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:08:36 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/27 16:42:57 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/05 13:52:25 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int	Fixed::fractionalBits = 8;
 
 Fixed::Fixed(void) : value(0)
 {
