@@ -6,13 +6,11 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:08:36 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/05 14:03:52 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/05 14:12:40 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int	Fixed::bits = 8;
 
 Fixed::Fixed(void) : value(0)
 {
