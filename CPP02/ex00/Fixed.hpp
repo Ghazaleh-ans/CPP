@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:55:41 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/05 13:52:39 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/05 14:12:52 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 private:
 	int					value;
-	static const int	bits;
+	static const int	bits = 8;
 public:
 	Fixed();
 	~Fixed();
