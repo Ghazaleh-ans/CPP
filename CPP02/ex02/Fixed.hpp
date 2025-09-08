@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:55:41 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/08 17:59:12 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:27:37 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,34 @@ private:
 public:
 	Fixed();
 	~Fixed();
+
 	Fixed(const int intValue);
 	Fixed(const float floatValue);
 	Fixed(const Fixed &other);
+
 	Fixed &operator=(const Fixed &other);
+	Fixed operator+(const Fixed &other) const;
+	Fixed operator-(const Fixed &other) const;
+	Fixed operator*(const Fixed &other) const;
+	Fixed operator/(const Fixed &other) const;
+
+	bool operator<(const Fixed &other) const;
+	bool operator>(const Fixed &other) const;
+	bool operator<=(const Fixed &other) const;
+	bool operator>=(const Fixed &other) const;
+	bool operator==(const Fixed &other) const;
+	bool operator!=(const Fixed &other) const;
+
+	Fixed &operator++();       // Prefix increment
+	Fixed operator++(int);     // Postfix increment
+	Fixed &operator--();       // Prefix decrement
+	Fixed operator--(int);     // Postfix decrement
+
+	static Fixed &min(Fixed &a, Fixed &b);
+	static const Fixed &min(const Fixed &a, const Fixed &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static const Fixed &max(const Fixed &a, const Fixed &b);
+
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
