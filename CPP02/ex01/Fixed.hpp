@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 15:55:41 by gansari           #+#    #+#             */
-/*   Updated: 2025/08/27 18:38:04 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/08 17:11:05 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>
+
 class Fixed
 {
 private:
