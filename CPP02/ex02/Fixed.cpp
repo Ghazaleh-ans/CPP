@@ -6,11 +6,12 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:08:36 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/08 18:35:23 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:51:38 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <stdexcept>
 
 static const int FIXED_INT32_MAX = 2147483647; // 2^31 - 1
 static const int FIXED_INT32_MIN = -2147483647 - 1; // -2^31
@@ -89,17 +90,24 @@ bool Fixed::operator!=(const Fixed &other) const
 
 Fixed Fixed::operator+(const Fixed &other) const
 {
-	return (Fixed(this->toFloat() + other.toFloat()));
+	Fixed result;
+	result.setRawBits(this->value + other.value);
+	return result;
 }
 
 Fixed Fixed::operator-(const Fixed &other) const
 {
-	return (Fixed(this->toFloat() - other.toFloat()));
+	Fixed result;
+	result.setRawBits(this->value - other.value);
+	return result;
 }
 
 Fixed Fixed::operator*(const Fixed &other) const
 {
-	return (Fixed(this->toFloat() * other.toFloat()));
+	Fixed result;
+	// For multiplication, we need to divide by (1 << bits) to maintain scale
+	result.setRawBits((static_cast<long long>(this->value) * other.value) >> bits);
+	return result;
 }
 
 Fixed Fixed::operator/(const Fixed &other) const
@@ -108,7 +116,10 @@ Fixed Fixed::operator/(const Fixed &other) const
 	{
 		throw std::runtime_error("Division by zero");
 	}
-	return (Fixed(this->toFloat() / other.toFloat()));
+	Fixed result;
+	// For division, we need to multiply by (1 << bits) to maintain scale
+	result.setRawBits((static_cast<long long>(this->value) << bits) / other.value);
+	return result;
 }
 
 Fixed &Fixed::operator++() // Prefix increment
