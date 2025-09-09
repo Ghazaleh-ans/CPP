@@ -6,18 +6,16 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 16:08:36 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/08 17:17:09 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/09 12:22:57 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-static const int FIXED_INT32_MAX = 2147483647; // 2^31 - 1
-static const int FIXED_INT32_MIN = -2147483647 - 1; // -2^31
-static const int MAX_INT_VALUE = FIXED_INT32_MAX >> 8; // 8,388,607
-static const int MIN_INT_VALUE = FIXED_INT32_MIN >> 8; // -8,388,608
-static const float MAX_FLOAT_VALUE = static_cast<float>(FIXED_INT32_MAX) / (1 << 8); //8388607.99609375f
-static const float MIN_FLOAT_VALUE = static_cast<float>(FIXED_INT32_MIN) / (1 << 8); //-8388608.0f
+static const int MAX_INT_VALUE = INT_MAX >> 8; // 8,388,607
+static const int MIN_INT_VALUE = INT_MIN >> 8; // -8,388,608
+static const float MAX_FLOAT_VALUE = static_cast<float>(INT_MAX) / (1 << 8); //8388607.99609375f
+static const float MIN_FLOAT_VALUE = static_cast<float>(INT_MIN) / (1 << 8); //-8388608.0f
 
 Fixed::Fixed() : value(0)
 {
