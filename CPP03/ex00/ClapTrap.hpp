@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:16:22 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 11:19:49 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 12:00:36 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #define CLAPTRAP_HPP
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include <limits>
-#include <cstdlib>
 
 class ClapTrap
 {
