@@ -16,18 +16,18 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= claptrap
+NAME		= ScavTrap
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp ClapTrap.cpp
+SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= ClapTrap.hpp
+HEADERS	= ClapTrap.hpp ScavTrap.hpp
 
 
 all: $(NAME)
