@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:21:51 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 12:03:03 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 12:27:03 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,14 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string &target)
 {
-	if (energyPoints == 0 || hitPoints == 0)
+	if (hitPoints == 0)
 	{
-		std::cout << "ClapTrap " << name << " has no energy or hit points left to attack." << std::endl;
+		std::cout << "ClapTrap " << name << " is dead and cannot attack!" << std::endl;
+		return;
+	}
+	if (energyPoints == 0)
+	{
+		std::cout << "ClapTrap " << name << " has no energy left to attack!" << std::endl;
 		return;
 	}
 	energyPoints--;
@@ -78,9 +83,14 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (energyPoints == 0 || hitPoints == 0)
+	if (hitPoints == 0)
 	{
-		std::cout << "ClapTrap " << name << " has no energy or hit points left to repair." << std::endl;
+		std::cout << "ClapTrap " << name << " is dead and cannot repair itself!" << std::endl;
+		return;
+	}
+	if (energyPoints == 0)
+	{
+		std::cout << "ClapTrap " << name << " has no energy left to repair itself!" << std::endl;
 		return;
 	}
 	energyPoints--;
@@ -130,7 +140,7 @@ void ClapTrap::setAttackDamage(unsigned int attackDamage)
 
 std::ostream &operator<<(std::ostream &out, const ClapTrap &clapTrap)
 {
-	out << "ClapTrap " << clapTrap.getName() << " [HP: " << clapTrap.getHitPoints()
-		<< ", EP: " << clapTrap.getEnergyPoints() << ", AD: " << clapTrap.getAttackDamage() << "]";
+	out << "ClapTrap " << clapTrap.getName() << " [HitPoints: " << clapTrap.getHitPoints()
+		<< ", EnergyPoints: " << clapTrap.getEnergyPoints() << ", AttackDamage: " << clapTrap.getAttackDamage() << "]";
 	return out;
 }
