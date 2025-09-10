@@ -19,7 +19,7 @@ ClapTrap::ClapTrap() : name("Default"), hitPoints(10), energyPoints(10), attackD
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << "ClapTrap " << name << " has been created." << std::endl;
+	std::cout << "ClapTrap " << name << " has been created with parameterized constructor." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) : name(other.name), hitPoints(other.hitPoints), 
