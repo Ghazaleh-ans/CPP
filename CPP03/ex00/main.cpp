@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:27:27 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 11:47:39 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 12:23:59 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,11 @@ int main()
 	clap3.takeDamage(clap2.getAttackDamage());
 	clap2.attack(clap3.getName());
 	clap3.takeDamage(clap2.getAttackDamage());
+
+	std::cout << "\nFinal States:\n";
+	std::cout << clap1 << std::endl;
+	std::cout << clap2 << std::endl;
+	std::cout << clap3 << std::endl;
+
 	return 0;
 }
