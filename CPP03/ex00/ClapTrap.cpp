@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:21:51 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 12:27:03 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 13:39:43 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 	std::cout << "ClapTrap " << name << " has been created." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other)
+ClapTrap::ClapTrap(const ClapTrap &other) : name(other.name), hitPoints(other.hitPoints), 
+	energyPoints(other.energyPoints), attackDamage(other.attackDamage)
 {
-	*this = other;
 	std::cout << "ClapTrap " << name << " has been created by copy constructor." << std::endl;
 }
 
