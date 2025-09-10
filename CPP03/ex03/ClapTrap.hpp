@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:16:22 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 16:49:31 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 17:46:11 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ protected:
 	unsigned int hitPoints;
 	unsigned int energyPoints;
 	unsigned int attackDamage;
+	static const unsigned int DEFAULT_HIT_POINTS = 10;
+	static const unsigned int DEFAULT_ENERGY_POINTS = 10;
+	static const unsigned int DEFAULT_ATTACK_DAMAGE = 0;
+
 public:
 	ClapTrap();
 	ClapTrap(const std::string &name);

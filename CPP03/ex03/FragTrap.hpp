@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:58:30 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 16:50:36 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 17:51:03 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 class FragTrap : virtual public ClapTrap
 {
+protected:
+	static const unsigned int FRAG_HIT_POINTS = 100;
+	static const unsigned int FRAG_ENERGY_POINTS = 100;
+	static const unsigned int FRAG_ATTACK_DAMAGE = 30;
+
 public:
 	FragTrap();
 	FragTrap(const std::string &name);
