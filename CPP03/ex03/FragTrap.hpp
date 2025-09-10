@@ -6,22 +6,23 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:58:30 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 15:24:42 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 16:50:36 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 #include "ClapTrap.hpp"
-class FragTrap : public ClapTrap
+
+class FragTrap : virtual public ClapTrap
 {
 public:
 	FragTrap();
 	FragTrap(const std::string &name);
 	FragTrap(const FragTrap &other);
 	FragTrap &operator=(const FragTrap &other);
-	~FragTrap();
+	virtual ~FragTrap();
 	void highFivesGuys(void);
-	void attack(const std::string &target);
+	virtual void attack(const std::string &target);
 };
 #endif
