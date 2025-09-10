@@ -6,15 +6,13 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 14:58:30 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 15:12:33 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 15:24:42 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 #include "ClapTrap.hpp"
-#include <string>
-#include <iostream>
 class FragTrap : public ClapTrap
 {
 public:

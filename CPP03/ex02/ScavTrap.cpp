@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:58:38 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 13:13:15 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 15:44:25 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap() : ClapTrap("Default_ScavTrap")
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
-	std::cout << "ScavTrap Default constructor called" << std::endl;
+	std::cout << "ScavTrap " << name << " has been created with default constructor." << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
@@ -25,12 +25,12 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
 	this->hitPoints = 100;
 	this->energyPoints = 50;
 	this->attackDamage = 20;
-	std::cout << "ScavTrap Parameterized constructor called" << std::endl;
+	std::cout << "ScavTrap " << name << " has been created with parameterized constructor." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
-	std::cout << "ScavTrap Copy constructor called" << std::endl;
+	std::cout << "ScavTrap " << name << " has been created by copy constructor." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
@@ -39,13 +39,13 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 	{
 		ClapTrap::operator=(other);
 	}
-	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
+	std::cout << "ScavTrap assignment operator called for " << name << std::endl;
 	return *this;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap Destructor called" << std::endl;
+	std::cout << "ScavTrap " << name << " has been destroyed." << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)
