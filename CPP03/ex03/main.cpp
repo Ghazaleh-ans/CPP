@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:27:27 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 16:51:29 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 18:00:17 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,8 +190,6 @@ int main()
 {
 	try
 	{
-		std::cout << "=== DiamondTrap Testing Program - Exercise 03 ===\n" << std::endl;
-		
 		testDiamondTrapCreation();
 		testAttributeInheritance();
 		testMethodInheritance();
@@ -201,9 +199,6 @@ int main()
 		testErrorConditions();
 		
 		printSeparator("ALL TESTS COMPLETED SUCCESSFULLY");
-		std::cout << "DiamondTrap implementation working correctly!" << std::endl;
-		std::cout << "Virtual inheritance successfully resolves the diamond problem." << std::endl;
-		std::cout << "All special abilities from both parent classes are accessible." << std::endl;
 	}
 	catch (const std::exception& e)
 	{

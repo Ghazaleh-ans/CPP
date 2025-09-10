@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 16:57:09 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 17:56:24 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), ScavTrap(), FragTrap(), name("Default")
 {
-	this->hitPoints = FragTrap::hitPoints;      // Hit points from FragTrap (100)
-	this->energyPoints = ScavTrap::energyPoints; // Energy points from ScavTrap (50)
-	this->attackDamage = FragTrap::attackDamage; // Attack damage from FragTrap (30)
+	this->hitPoints = FragTrap::FRAG_HIT_POINTS;
+	this->energyPoints = ScavTrap::SCAV_ENERGY_POINTS;
+	this->attackDamage = FragTrap::FRAG_ATTACK_DAMAGE;
 	std::cout << "DiamondTrap " << name << " has been created with default constructor." << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), name(name)
 {
-	this->hitPoints = FragTrap::hitPoints;      // Hit points from FragTrap (100)
-	this->energyPoints = ScavTrap::energyPoints; // Energy points from ScavTrap (50)
-	this->attackDamage = FragTrap::attackDamage; // Attack damage from FragTrap (30)
+	this->hitPoints = FragTrap::FRAG_HIT_POINTS;
+	this->energyPoints = ScavTrap::SCAV_ENERGY_POINTS;
+	this->attackDamage = FragTrap::FRAG_ATTACK_DAMAGE;
 	std::cout << "DiamondTrap " << name << " has been created with parameterized constructor." << std::endl;
 }
 
@@ -53,7 +53,7 @@ DiamondTrap::~DiamondTrap()
 
 void DiamondTrap::attack(const std::string &target)
 {
-	ScavTrap::attack(target);  // Explicitly call ScavTrap's attack method
+	ScavTrap::attack(target);
 }
 
 void DiamondTrap::whoAmI()

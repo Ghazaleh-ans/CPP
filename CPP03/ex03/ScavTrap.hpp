@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 12:56:59 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 16:50:12 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 17:47:17 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 class ScavTrap : virtual public ClapTrap
 {
+protected:
+	static const unsigned int SCAV_HIT_POINTS = 100;
+	static const unsigned int SCAV_ENERGY_POINTS = 50;
+	static const unsigned int SCAV_ATTACK_DAMAGE = 20;
+
 public:
 	ScavTrap();
 	ScavTrap(const std::string &name);
