@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:27:45 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 21:34:14 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 21:49:54 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	Animal(const std::string &type);
 	Animal &operator=(const Animal &other);
 	~Animal();
-	void setType(std::string type);
+	void setType(std::string &type);
 	void getType() const;
 };
 
