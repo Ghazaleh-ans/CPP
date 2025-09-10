@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 11:27:27 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 13:26:51 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 13:55:27 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,6 @@ int main()
 		testPolymorphicBehavior();
 		
 		printSeparator("ALL TESTS COMPLETED");
-		std::cout << "If you see this message, all tests ran without crashing!" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
