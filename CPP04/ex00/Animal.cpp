@@ -6,20 +6,25 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:35:32 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 23:15:14 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/11 10:31:07 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : type("Default")
+Animal::Animal() : type("Animal")
 {
-	std::cout << "Animal " << type << " has been created with default constructor." << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
 }
 
 Animal::Animal(const std::string &type) : type(type)
 {
-	std::cout << "Animal " << type << " has been created with parameterized constructor." << std::endl;
+	std::cout << "Animal parameterized constructor called for " << type << std::endl;
+}
+
+Animal::Animal(const Animal &other) : type(other.type)
+{
+	std::cout << "Animal copy constructor called for " << type << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &other)
@@ -34,15 +39,15 @@ Animal &Animal::operator=(const Animal &other)
 
 Animal::~Animal()
 {
-	std::cout << "Animal " << type << " has been destroyed." << std::endl;
+	std::cout << "Animal destructor called for " << type << std::endl;
 }
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal " << type << " makes default sound" << std::endl;
+	std::cout << "Animal makes some generic sound" << std::endl;
 }
 
-void Animal::setType(std::string &type)
+void Animal::setType(const std::string &type)
 {
 	this->type = type;
 }

@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:40:12 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 23:13:08 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/11 10:31:30 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	std::cout << "Cat " << type << " has been created with default constructor." << std::endl;
+	std::cout << "Cat default constructor called" << std::endl;
 }
 
-Cat::Cat(const std::string &type) : Animal("Cat")
+Cat::Cat(const Cat &other) : Animal(other)
 {
-	std::cout << "Cat " << type << " has been created with parameterized constructor." << std::endl;
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -28,16 +28,16 @@ Cat &Cat::operator=(const Cat &other)
 	{
 		Animal::operator=(other);
 	}
-	std::cout << "Cat assignment operator called for " << type << std::endl;
+	std::cout << "Cat assignment operator called" << std::endl;
 	return *this;
 }
 
 Cat::~Cat()
 {
-	std::cout << "Cat " << type << " has been destroyed." << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "Cat says Mew Mew" << std::endl;
+	std::cout << "Meow! Meow!" << std::endl;
 }
