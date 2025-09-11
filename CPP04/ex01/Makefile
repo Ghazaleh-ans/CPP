@@ -16,18 +16,18 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= polymorphism
+NAME		= thinkingAnimals
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+HEADERS	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 
 all: $(NAME)
