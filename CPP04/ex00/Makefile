@@ -16,18 +16,18 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= DiamondTrap
+NAME		= polymorphism
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
+HEADERS	= Animal.hpp Dog.hpp Cat.hpp
 
 
 all: $(NAME)
