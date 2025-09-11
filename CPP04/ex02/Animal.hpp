@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:27:45 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/11 12:12:16 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/11 13:09:13 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ class Animal
 {
 protected:
 	std::string type;
-
-public:
 	Animal();
 	Animal(const std::string &type);
 	Animal(const Animal &other);
+
+public:
 	Animal &operator=(const Animal &other);
 	virtual ~Animal();
-	virtual void makeSound() const;
+	virtual void makeSound() const = 0;
 	virtual void setType(const std::string &type);
 	virtual std::string getType() const;
 };
