@@ -21,13 +21,13 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= Animal.hpp Dog.hpp Cat.hpp
+HEADERS	= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
 
 
 all: $(NAME)
@@ -37,7 +37,7 @@ $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) -o $@ $^
 	@echo $(SUCCESS) $(GREEN) "Compiling $(NAME) FINISHED" $(RESET)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS) $(SRCS)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

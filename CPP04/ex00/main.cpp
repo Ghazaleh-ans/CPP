@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 23:25:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/11 10:23:22 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/11 10:50:58 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int main()
 	std::cout << meta->getType() << " " << std::endl;
 	
 	std::cout << "\nSound testing (should show specific sounds):" << std::endl;
-	i->makeSound(); // will output the cat sound!
-	j->makeSound(); // will output the dog sound!
+	j->makeSound(); // will output the cat sound!
+	i->makeSound(); // will output the dog sound!
 	meta->makeSound(); // will output the animal sound!
 	
 	std::cout << "\nDeleting animals:" << std::endl;
