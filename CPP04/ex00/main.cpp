@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 21:27:45 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 23:10:30 by gansari          ###   ########.fr       */
+/*   Created: 2025/09/10 23:25:00 by gansari           #+#    #+#             */
+/*   Updated: 2025/09/10 23:25:00 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
-#include <iostream>
-#include <string>
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-class Animal
+int main()
 {
-protected:
-	std::string type;
-public:
-	Animal();
-	Animal(const std::string &type);
-	Animal &operator=(const Animal &other);
-	virtual ~Animal();
-	virtual void makeSound() const;
-	virtual void setType(std::string &type);
-	virtual std::string getType() const;
-};
-
-#endif
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+	
+	delete j;
+	delete i;
+	delete meta;
+	
+	return 0;
+}

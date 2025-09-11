@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:14:58 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 22:42:54 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 23:17:38 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define CAT_HPP
 #include "Animal.hpp"
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
 public:
 	Cat();
@@ -22,6 +22,6 @@ public:
 	Cat &operator=(const Cat &other);
 	~Cat();
 	void makeSound() const;
-}
+};
 
 #endif

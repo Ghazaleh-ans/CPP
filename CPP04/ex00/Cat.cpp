@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 22:40:12 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 22:58:25 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 23:13:08 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cat::Cat(const std::string &type) : Animal("Cat")
 
 Cat &Cat::operator=(const Cat &other)
 {
-	if(this != other)
+	if(this != &other)
 	{
 		Animal::operator=(other);
 	}

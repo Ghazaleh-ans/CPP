@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:35:32 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/10 22:38:09 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/10 23:15:14 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Animal::~Animal()
 
 void Animal::makeSound() const
 {
-	std::cout << "Animal " << type << "default sound" << std::endl;
+	std::cout << "Animal " << type << " makes default sound" << std::endl;
 }
 
 void Animal::setType(std::string &type)
@@ -47,7 +47,7 @@ void Animal::setType(std::string &type)
 	this->type = type;
 }
 
-void Animal::getType() const
+std::string Animal::getType() const
 {
 	return this->type;
 }
