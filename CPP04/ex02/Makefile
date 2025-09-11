@@ -16,7 +16,7 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= thinkingAnimals
+NAME		= AbstractAnimal
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
