@@ -21,13 +21,13 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
+SRCS	= AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp main.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HEADERS	= AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 
 
 all: $(NAME)
