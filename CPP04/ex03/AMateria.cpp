@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/15 20:59:58 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/17 19:35:09 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ AMateria::AMateria(const AMateria &other) : type(other.type)
 AMateria &AMateria::operator=(const AMateria &other)
 {
 	// Note: We don't copy the type during assignment as mentioned in the exercise
-	(void)other; // Avoid unused parameter warning
+	(void)other;
 	std::cout << "AMateria assignment operator called" << std::endl;
 	return *this;
 }
