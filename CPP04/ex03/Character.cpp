@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/15 21:03:20 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/17 20:10:23 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ Character &Character::operator=(const Character &other)
 	if (this != &other)
 	{
 		name = other.name;
-		// Delete old inventory
 		for (int i = 0; i < 4; i++)
 		{
 			delete inventory[i];
@@ -66,10 +65,8 @@ Character &Character::operator=(const Character &other)
 Character::~Character()
 {
 	std::cout << "Character destructor called for " << name << std::endl;
-	// Delete inventory
 	for (int i = 0; i < 4; i++)
 		delete inventory[i];
-	// Delete dropped materias
 	for (int i = 0; i < droppedCount; i++)
 		delete droppedMaterias[i];
 }
@@ -82,8 +79,11 @@ std::string const &Character::getName() const
 void Character::equip(AMateria* m)
 {
 	if (!m)
+	{
+		std::cout << "Error: " << name << " cannot equip null materia" << std::endl;
 		return;
-		
+	}
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (!inventory[i])
@@ -98,12 +98,19 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= 4 || !inventory[idx])
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << "Error: " << name << " cannot unequip from invalid slot " << idx << " (valid range: 0-3)" << std::endl;
 		return;
-		
+	}
+	if (!inventory[idx])
+	{
+		std::cout << "Error: " << name << " cannot unequip from empty slot " << idx << std::endl;
+		return;
+	}
+
 	std::cout << name << " unequipped " << inventory[idx]->getType() << " from slot " << idx << std::endl;
-	
-	// Store dropped materia to avoid memory leak
+
 	if (droppedCount < 100)
 	{
 		droppedMaterias[droppedCount] = inventory[idx];
@@ -111,18 +118,24 @@ void Character::unequip(int idx)
 	}
 	else
 	{
-		// If dropped array is full, delete the materia (or handle differently)
+		// If dropped array is full, delete the materia (avoid leaks)
 		delete inventory[idx];
 	}
-	
 	inventory[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx >= 4 || !inventory[idx])
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << "Error: " << name << " cannot use materia from invalid slot " << idx << " (valid range: 0-3)" << std::endl;
 		return;
-		
+	}
+	if (!inventory[idx])
+	{
+		std::cout << "Error: " << name << " cannot use materia from empty slot " << idx << std::endl;
+		return;
+	}
 	inventory[idx]->use(target);
 }
 
