@@ -79,7 +79,10 @@ std::string const &Character::getName() const
 void Character::equip(AMateria* m)
 {
 	if (!m)
+	{
+		std::cout << "Error: " << name << " cannot equip null materia" << std::endl;
 		return;
+	}
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -95,8 +98,16 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= 4 || !inventory[idx])
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << "Error: " << name << " cannot unequip from invalid slot " << idx << " (valid range: 0-3)" << std::endl;
 		return;
+	}
+	if (!inventory[idx])
+	{
+		std::cout << "Error: " << name << " cannot unequip from empty slot " << idx << std::endl;
+		return;
+	}
 
 	std::cout << name << " unequipped " << inventory[idx]->getType() << " from slot " << idx << std::endl;
 
@@ -115,8 +126,16 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx >= 4 || !inventory[idx])
+	if (idx < 0 || idx >= 4)
+	{
+		std::cout << "Error: " << name << " cannot use materia from invalid slot " << idx << " (valid range: 0-3)" << std::endl;
 		return;
+	}
+	if (!inventory[idx])
+	{
+		std::cout << "Error: " << name << " cannot use materia from empty slot " << idx << std::endl;
+		return;
+	}
 	inventory[idx]->use(target);
 }
 
