@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 20:59:31 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/17 19:32:24 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/17 19:45:38 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ class ICharacter;
 
 class AMateria
 {
-private:
-	AMateria();
-
 protected:
 	std::string type;
 
