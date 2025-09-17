@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MaterialSource.cpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/15 21:05:28 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/17 19:50:02 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
 	if (this != &other)
 	{
-		// Delete old templates
 		for (int i = 0; i < 4; i++)
 		{
 			delete templates[i];
@@ -59,8 +58,11 @@ MateriaSource::~MateriaSource()
 void MateriaSource::learnMateria(AMateria* materia)
 {
 	if (!materia)
+	{
+		std::cout << "Error: MateriaSource cannot learn null materia" << std::endl;
 		return;
-		
+	}
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (!templates[i])
