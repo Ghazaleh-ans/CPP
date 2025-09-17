@@ -94,6 +94,7 @@ void Character::equip(AMateria* m)
 		}
 	}
 	std::cout << name << "'s inventory is full, cannot equip " << m->getType() << std::endl;
+	delete m;
 }
 
 void Character::unequip(int idx)
