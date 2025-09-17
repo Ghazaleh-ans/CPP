@@ -16,7 +16,7 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= AbstractAnimal
+NAME		= Interface
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
