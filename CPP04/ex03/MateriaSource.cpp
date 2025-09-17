@@ -58,7 +58,10 @@ MateriaSource::~MateriaSource()
 void MateriaSource::learnMateria(AMateria* materia)
 {
 	if (!materia)
+	{
+		std::cout << "Error: MateriaSource cannot learn null materia" << std::endl;
 		return;
+	}
 
 	for (int i = 0; i < 4; i++)
 	{
