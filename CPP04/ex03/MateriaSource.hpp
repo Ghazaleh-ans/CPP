@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MaterialSource.hpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/15 21:04:52 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/17 19:46:26 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	MateriaSource(const MateriaSource &other);
 	MateriaSource &operator=(const MateriaSource &other);
 	virtual ~MateriaSource();
-	
+
 	virtual void learnMateria(AMateria* materia);
 	virtual AMateria* createMateria(std::string const &type);
 };
