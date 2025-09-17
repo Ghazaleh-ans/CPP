@@ -69,10 +69,12 @@ void MateriaSource::learnMateria(AMateria* materia)
 		{
 			templates[i] = materia->clone();
 			std::cout << "MateriaSource learned " << materia->getType() << std::endl;
+			delete materia;
 			return;
 		}
 	}
 	std::cout << "MateriaSource cannot learn more materias, templates full" << std::endl;
+	delete materia;
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)
