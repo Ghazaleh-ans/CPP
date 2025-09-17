@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2025/09/15 21:01:24 by gansari          ###   ########.fr       */
+/*   Updated: 2025/09/17 19:42:44 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	Ice(const Ice &other);
 	Ice &operator=(const Ice &other);
 	virtual ~Ice();
-	
+
 	virtual AMateria* clone() const;
 	virtual void use(ICharacter& target);
 };
