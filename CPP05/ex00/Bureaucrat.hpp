@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 18:15:20 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/08 18:15:27 by gansari          ###   ########.fr       */
+/*   Updated: 2026/01/08 18:17:26 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,18 @@ private:
 	int _grade;
 
 public:
-	// Orthodox Canonical Form
 	Bureaucrat();
 	Bureaucrat(const std::string& name, int grade);
 	Bureaucrat(const Bureaucrat& other);
 	Bureaucrat& operator=(const Bureaucrat& other);
 	~Bureaucrat();
 
-	// Getters
 	const std::string& getName() const;
 	int getGrade() const;
 
-	// Grade modification
-	void incrementGrade(); // Makes grade better (3 -> 2)
-	void decrementGrade(); // Makes grade worse (3 -> 4)
+	void incrementGrade();
+	void decrementGrade();
 
-	// Exception classes
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char* what() const throw();
@@ -50,7 +46,6 @@ public:
 	};
 };
 
-// Overload insertion operator
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
 #endif
