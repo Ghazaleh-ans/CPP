@@ -16,18 +16,18 @@ CLEAN	= 🧹
 FCLEAN	= 🧼
 
 # Compiler
-NAME		= bureaucrat
+NAME		= form
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Sources
-SRCS	= main.cpp Bureaucrat.cpp
+SRCS	= main.cpp Bureaucrat.cpp Form.cpp
 
 # Objects
 OBJS	= $(SRCS:.cpp=.o)
 
 #Headers
-HEADERS	= Bureaucrat.hpp
+HEADERS	= Bureaucrat.hpp Form.hpp
 
 
 all: $(NAME)
