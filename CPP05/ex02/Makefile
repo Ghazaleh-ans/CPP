@@ -38,7 +38,6 @@ HEADERS	= Bureaucrat.hpp \
 		RobotomyRequestForm.hpp \
 		PresidentialPardonForm.hpp
 
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
