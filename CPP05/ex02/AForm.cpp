@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/27 19:55:05 by gansari          ###   ########.fr       */
+/*   Updated: 2026/01/27 20:24:50 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 AForm::AForm() 
 	: _name("Default Form"), _isSigned(false), 
-	  _gradeToSign(150), _gradeToExecute(150) {}
+	_gradeToSign(150), _gradeToExecute(150) {}
 
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
 	: _name(name), _isSigned(false), 
-	  _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+	_gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 	
 	if (_gradeToSign < 1 || _gradeToExecute < 1)
 		throw GradeTooHighException();
@@ -29,9 +29,9 @@ AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
 
 AForm::AForm(const AForm& other)
 	: _name(other._name), 
-	  _isSigned(other._isSigned),
-	  _gradeToSign(other._gradeToSign),
-	  _gradeToExecute(other._gradeToExecute) {}
+	_isSigned(other._isSigned),
+	_gradeToSign(other._gradeToSign),
+	_gradeToExecute(other._gradeToExecute) {}
 
 AForm& AForm::operator=(const AForm& other) {
 	if (this != &other) {
@@ -79,8 +79,8 @@ const char* AForm::FormNotSignedException::what() const throw() {
 
 std::ostream& operator<<(std::ostream& out, const AForm& form) {
 	out << "Form: " << form.getName() 
-	    << ", signed: " << (form.isSigned() ? "yes" : "no")
-	    << ", grade to sign: " << form.getGradeToSign()
-	    << ", grade to execute: " << form.getGradeToExecute();
+		<< ", signed: " << (form.isSigned() ? "yes" : "no")
+		<< ", grade to sign: " << form.getGradeToSign()
+		<< ", grade to execute: " << form.getGradeToExecute();
 	return out;
 }

@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/27 19:54:39 by gansari          ###   ########.fr       */
+/*   Updated: 2026/01/27 20:24:32 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,21 @@ private:
 	const int _gradeToExecute;
 
 public:
-	// Orthodox Canonical Form
 	AForm();
 	AForm(const std::string& name, int gradeToSign, int gradeToExecute);
 	AForm(const AForm& other);
 	AForm& operator=(const AForm& other);
-	virtual ~AForm();  // Virtual destructor!
+	virtual ~AForm();
 
-	// Getters
 	const std::string& getName() const;
 	bool isSigned() const;
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
 
-	// Member functions
 	void beSigned(const Bureaucrat& bureaucrat);
-	
-	// Pure virtual function - makes this class abstract!
+
 	virtual void execute(Bureaucrat const& executor) const = 0;
 
-	// Exception classes
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char* what() const throw();
