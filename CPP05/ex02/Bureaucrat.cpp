@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/27 19:53:43 by gansari          ###   ########.fr       */
+/*   Updated: 2026/01/27 20:28:34 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void Bureaucrat::signForm(AForm& form) const {
 		std::cout << _name << " signed " << form.getName() << std::endl;
 	} catch (std::exception& e) {
 		std::cout << _name << " couldn't sign " << form.getName() 
-		          << " because " << e.what() << std::endl;
+				<< " because " << e.what() << std::endl;
 	}
 }
 
@@ -71,7 +71,7 @@ void Bureaucrat::executeForm(AForm const& form) const {
 		std::cout << _name << " executed " << form.getName() << std::endl;
 	} catch (std::exception& e) {
 		std::cout << _name << " couldn't execute " << form.getName()
-		          << " because " << e.what() << std::endl;
+				<< " because " << e.what() << std::endl;
 	}
 }
 
@@ -85,6 +85,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat) {
 	out << bureaucrat.getName() << ", bureaucrat grade " 
-	    << bureaucrat.getGrade() << ".";
+		<< bureaucrat.getGrade() << ".";
 	return out;
 }
