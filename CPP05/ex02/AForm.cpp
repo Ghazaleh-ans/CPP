@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/27 20:24:50 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/03 19:12:46 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ AForm::AForm()
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
 	: _name(name), _isSigned(false), 
 	_gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
-	
 	if (_gradeToSign < 1 || _gradeToExecute < 1)
 		throw GradeTooHighException();
 	if (_gradeToSign > 150 || _gradeToExecute > 150)
