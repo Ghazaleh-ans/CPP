@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 18:15:20 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/09 16:59:46 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:21:46 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 #include <iostream>
 #include <exception>
 
-class Form;  // Forward declaration only
+// Forward declaration only, if include the header it will be an infinite loop!
+class Form;
 
 class Bureaucrat {
 private:
@@ -25,25 +26,20 @@ private:
 	int _grade;
 
 public:
-	// Orthodox Canonical Form
 	Bureaucrat();
 	Bureaucrat(const std::string& name, int grade);
 	Bureaucrat(const Bureaucrat& other);
 	Bureaucrat& operator=(const Bureaucrat& other);
 	~Bureaucrat();
 
-	// Getters
 	const std::string& getName() const;
 	int getGrade() const;
 
-	// Grade modification
 	void incrementGrade();
 	void decrementGrade();
 
-	// NEW: Sign form (just declaration here)
 	void signForm(Form& form) const;
 
-	// Exception classes
 	class GradeTooHighException : public std::exception {
 	public:
 		virtual const char* what() const throw();
@@ -55,7 +51,6 @@ public:
 	};
 };
 
-// Overload insertion operator
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
 #endif
