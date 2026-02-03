@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 16:07:40 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/09 16:54:47 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/03 17:25:40 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,23 +56,13 @@ int Form::getGradeToExecute() const {
 	return _gradeToExecute;
 }
 
-// beSigned function - THIS IS KEY!
 void Form::beSigned(const Bureaucrat& bureaucrat) {
-	// Check if bureaucrat's grade is good enough
-	// Remember: LOWER number = BETTER grade
-	// So if bureaucrat has grade 40 and form needs grade 50:
-	// 40 < 50 means bureaucrat is BETTER than required → OK!
-	
 	if (bureaucrat.getGrade() > _gradeToSign) {
-		// Bureaucrat's grade is worse than required
 		throw GradeTooLowException();
 	}
-	
-	// Grade is good enough, sign the form
 	_isSigned = true;
 }
 
-// Exception implementations
 const char* Form::GradeTooHighException::what() const throw() {
 	return "Form grade is too high!";
 }
@@ -81,7 +71,6 @@ const char* Form::GradeTooLowException::what() const throw() {
 	return "Form grade is too low!";
 }
 
-// Insertion operator overload
 std::ostream& operator<<(std::ostream& out, const Form& form) {
 	out << "Form: " << form.getName() 
 		<< ", signed: " << (form.isSigned() ? "yes" : "no")
