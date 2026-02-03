@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/03 19:20:38 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/03 20:30:40 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ void PresidentialPardonForm::execute(Bureaucrat const& executor) const {
 	if (executor.getGrade() > getGradeToExecute())
 		throw GradeTooLowException();
 	std::cout << "🎖️  " << _target 
-		<< " has been pardoned by Zaphod Beeblebrox." << std::endl;
+			<< " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
