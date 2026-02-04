@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/02 17:00:00 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:51:15 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,15 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
 		AForm* (*creator)(const std::string&);
 	};
 
-	FormType forms[] = {
+	static const FormType forms[] = {
 		{"shrubbery creation", &createShrubberyForm},
 		{"robotomy request", &createRobotomyForm},
 		{"presidential pardon", &createPresidentialForm}
 	};
 
-	for (int i = 0; i < 3; i++) {
+	static const int numForms = sizeof(forms) / sizeof(forms[0]);
+
+	for (int i = 0; i < numForms; i++) {
 		if (forms[i].name == formName) {
 			std::cout << "Intern creates " << formName << std::endl;
 			return forms[i].creator(target);
