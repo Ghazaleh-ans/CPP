@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/27 20:00:32 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/03 20:30:18 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,10 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void PresidentialPardonForm::execute(Bureaucrat const& executor) const {
-	// Check if form is signed
 	if (!isSigned())
 		throw FormNotSignedException();
-	
-	// Check if executor has high enough grade
 	if (executor.getGrade() > getGradeToExecute())
 		throw GradeTooLowException();
-	
-	// Execute the form's action: pardon the target
 	std::cout << "🎖️  " << _target 
-	          << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+			<< " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
