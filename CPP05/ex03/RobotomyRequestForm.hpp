@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 17:00:00 by gansari           #+#    #+#             */
-/*   Updated: 2026/01/27 19:58:08 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/03 20:29:10 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 	virtual ~RobotomyRequestForm();
 
-	// Implementation of pure virtual function
 	virtual void execute(Bureaucrat const& executor) const;
 };
 
