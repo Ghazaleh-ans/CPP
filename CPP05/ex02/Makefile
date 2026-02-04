@@ -56,6 +56,10 @@ fclean: clean
 	@rm -f $(NAME)
 	@echo $(FCLEAN) $(YELLOW) "Full Cleaned!" $(RESET)
 
+cleanfiles:
+	@rm -f *_shrubbery
+	@echo $(CLEAN) $(YELLOW) "Runtime Outputs Cleaned!" $(RESET)
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean cleanfiles re
