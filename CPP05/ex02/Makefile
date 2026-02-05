@@ -52,13 +52,13 @@ clean:
 	@rm -f $(OBJS)
 	@echo $(CLEAN) $(YELLOW) "Cleaned!" $(RESET)
 
-fclean: clean
-	@rm -f $(NAME)
-	@echo $(FCLEAN) $(YELLOW) "Full Cleaned!" $(RESET)
-
 cleanfiles:
 	@rm -f *_shrubbery
 	@echo $(CLEAN) $(YELLOW) "Runtime Outputs Cleaned!" $(RESET)
+
+fclean: clean cleanfiles
+	@rm -f $(NAME)
+	@echo $(FCLEAN) $(YELLOW) "Full Cleaned!" $(RESET)
 
 re: fclean all
 
