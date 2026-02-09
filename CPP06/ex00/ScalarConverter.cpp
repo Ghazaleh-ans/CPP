@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:15:10 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/09 16:20:34 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/09 17:57:39 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,8 @@ bool ScalarConverter::isFloatLiteral(const std::string& str) {
 	size_t i = 0;
 	if (numPart[i] == '+' || numPart[i] == '-')
 		i++;
-
 	bool hasDot = false;
 	bool hasDigit = false;
-
 	for (; i < numPart.length(); i++) {
 		if (numPart[i] == '.') {
 			if (hasDot)  // Second dot
@@ -95,7 +93,7 @@ bool ScalarConverter::isDoubleLiteral(const std::string& str) {
 	bool hasDigit = false;
 	for (; i < str.length(); i++) {
 		if (str[i] == '.') {
-			if (hasDot)
+			if (hasDot) //second dot
 				return false;
 			hasDot = true;
 		} else if (std::isdigit(str[i])) {
