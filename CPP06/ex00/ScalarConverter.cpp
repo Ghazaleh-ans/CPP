@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:15:10 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/09 14:52:15 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/09 16:20:34 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,17 +110,15 @@ bool ScalarConverter::isDoubleLiteral(const std::string& str) {
 void ScalarConverter::displayChar(double value) {
 	std::cout << "char: ";
 	if (std::isnan(value) || std::isinf(value)) {
-		std::cout << "impossible" << std::endl;
+		std::cout << "impossible" << std::endl; //inf or nan
 		return;
 	}
 	if (value < std::numeric_limits<char>::min() || 
 		value > std::numeric_limits<char>::max()) {
-		std::cout << "impossible" << std::endl;
+		std::cout << "impossible" << std::endl; //more than 8 bits
 		return;
 	}
-
 	char c = static_cast<char>(value);
-
 	if (c < 32 || c > 126) {
 		std::cout << "Non displayable" << std::endl;
 	} else {
@@ -131,11 +129,11 @@ void ScalarConverter::displayChar(double value) {
 void ScalarConverter::displayInt(double value) {
 	std::cout << "int: ";
 	if (std::isnan(value) || std::isinf(value)) {
-		std::cout << "impossible" << std::endl;
+		std::cout << "impossible" << std::endl; //inf or nan
 		return;
 	}
 	if (value < std::numeric_limits<int>::min() || 
-		value > std::numeric_limits<int>::max()) {
+		value > std::numeric_limits<int>::max()) { //more than 32 bits
 		std::cout << "impossible" << std::endl;
 		return;
 	}
