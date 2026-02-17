@@ -6,18 +6,13 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 15:19:34 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/17 15:48:16 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/17 15:49:06 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "whatever.hpp"
-
-static void printSeparator(const std::string &title)
-{
-	std::cout << "\n--- " << title << " ---\n";
-}
 
 int main(void)
 {
