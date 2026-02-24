@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:25:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/24 17:23:32 by gansari          ###   ########.fr       */
+/*   Updated: 2026/02/24 17:41:48 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ bool BitcoinExchange::isValidDate(const std::string& date)
 	int month = std::atoi(date.substr(5, 2).c_str());
 	int day   = std::atoi(date.substr(8, 2).c_str());
 
-	if (year < 2009 || month < 1 || month > 12 || day < 1)
+	if (month < 1 || month > 12 || day < 1)
 		return false;
 
 	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -242,7 +242,7 @@ void BitcoinExchange::processInput(const std::string& inputPath) const
 			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
 		}
-		if (value < 0.0)
+		if (value < 0.0 || (!valueStr.empty() && valueStr[0] == '-'))
 		{
 			std::cerr << "Error: not a positive number." << std::endl;
 			continue;
