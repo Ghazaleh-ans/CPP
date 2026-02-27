@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/27 14:53:29 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/27 15:11:22 by gansari          ###   ########.fr       */
+/*   Created: 2026/02/27 14:55:15 by gansari           #+#    #+#             */
+/*   Updated: 2026/02/27 15:11:35 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#include "RPN.hpp"
+#include <iostream>
 
-# include <stack>
-# include <string>
-
-class RPN
+int main(int argc, char* argv[])
 {
-public:
-	RPN();
-	RPN(const RPN& other);
-	RPN& operator=(const RPN& other);
-	~RPN();
+	if (argc != 2)
+	{
+		std::cerr << "Error: usage: ./RPN \"<expression>\"" << std::endl;
+		return 1;
+	}
 
-	int evaluate(const std::string& expression) const;
+	try
+	{
+		RPN rpn;
+		std::cout << rpn.evaluate(argv[1]) << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 
-private:
-	static int applyOperator(char op, int left, int right);
-};
-
-#endif
+	return 0;
+}
