@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:33:56 by gansari           #+#    #+#             */
-/*   Updated: 2026/03/10 20:59:54 by gansari          ###   ########.fr       */
+/*   Updated: 2026/03/12 18:15:11 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,20 +114,6 @@ static std::vector<size_t> makeInsertOrder(size_t n)
 	return order;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Ford-Johnson (merge-insert) sort — std::vector<int>
-//
-//  Steps:
-//   1. If size <= 1: done.
-//   2. If odd: save the last element as `straggler`.
-//   3. Form pairs; within each pair sort so larger is first.
-//   4. Recursively sort the sequence of larger elements (keeping pairs together).
-//   5. Build main chain: [b1, a1, a2, ..., an] (b1 = smaller of first pair).
-//   6. Insert remaining b's in Jacobsthal order using binary search,
-//      bounded above by the current position of each b's partner a.
-//   7. Insert straggler via binary search.
-// ─────────────────────────────────────────────────────────────────────────────
-
 void PmergeMe::fjVector(std::vector<int>& v)
 {
 	size_t n = v.size();
@@ -175,8 +161,6 @@ void PmergeMe::fjVector(std::vector<int>& v)
 	}
 	pairs = sortedPairs;
 
-	// ── Step 5: build main chain ──────────────────────────────────────────────
-	// chain = [b1, a1, a2, ..., an]
 	std::vector<int> chain;
 	chain.reserve(n + 1);
 	chain.push_back(pairs[0].second);            // b1
@@ -307,10 +291,6 @@ void PmergeMe::fjDeque(std::deque<int>& d)
 
 	d = chain;
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-//  Public sort methods — time each container independently
-// ─────────────────────────────────────────────────────────────────────────────
 
 void PmergeMe::sortVector()
 {
