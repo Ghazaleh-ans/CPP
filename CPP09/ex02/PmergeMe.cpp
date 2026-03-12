@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:33:56 by gansari           #+#    #+#             */
-/*   Updated: 2026/03/12 18:15:11 by gansari          ###   ########.fr       */
+/*   Updated: 2026/03/12 20:02:02 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,6 @@ void PmergeMe::parseInput(int argc, char** argv)
 		throw std::runtime_error("Error");
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Jacobsthal insertion order
-//
-//  Generates the sequence of 1-based b-indices to insert after b1:
-//    b3, b2, b5, b4, b11, b10, b9, b8, b7, b6, b21, ..., b12, ...
-//
-//  The Jacobsthal numbers (1-based): 1, 3, 5, 11, 21, 43, 85, ...
-//  Each consecutive pair (J[k-1], J[k]) defines a group: insert from
-//  min(J[k], n) down to J[k-1]+1.
-// ─────────────────────────────────────────────────────────────────────────────
-
 static std::vector<size_t> makeInsertOrder(size_t n)
 {
 	std::vector<size_t> order;
@@ -101,14 +90,13 @@ static std::vector<size_t> makeInsertOrder(size_t n)
 		size_t next = jac.back() + 2 * jac[jac.size() - 2];
 		jac.push_back(next);
 	}
-	// jac = {1, 3, 5, 11, 21, ...} with last element >= n
 
 	for (size_t g = 1; g < jac.size(); ++g)
 	{
-		size_t hi = std::min(jac[g], n);   // clamp to actual pair count
-		size_t lo = jac[g - 1] + 1;         // first index of this group
+		size_t hi = std::min(jac[g], n);
+		size_t lo = jac[g - 1] + 1;
 		if (lo > n) break;
-		for (size_t i = hi; i >= lo; --i)   // insert high→low within group
+		for (size_t i = hi; i >= lo; --i)
 			order.push_back(i);
 	}
 	return order;
@@ -163,17 +151,14 @@ void PmergeMe::fjVector(std::vector<int>& v)
 
 	std::vector<int> chain;
 	chain.reserve(n + 1);
-	chain.push_back(pairs[0].second);            // b1
+	chain.push_back(pairs[0].second);
 	for (size_t i = 0; i < pc; ++i)
-		chain.push_back(pairs[i].first);         // a1 … an
+		chain.push_back(pairs[i].first);
 
-	// Track the current index of each a_i inside chain.
-	// Initially a_i is at position i+1 (b1 occupies position 0).
 	std::vector<size_t> aPos(pc);
 	for (size_t i = 0; i < pc; ++i)
 		aPos[i] = i + 1;
 
-	// ── Step 6: insert remaining b's in Jacobsthal order ─────────────────────
 	std::vector<size_t> order = makeInsertOrder(pc);
 
 	for (size_t k = 0; k < order.size(); ++k)
