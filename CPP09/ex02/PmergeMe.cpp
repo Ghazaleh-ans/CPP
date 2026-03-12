@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:33:56 by gansari           #+#    #+#             */
-/*   Updated: 2026/03/09 15:34:43 by gansari          ###   ########.fr       */
+/*   Updated: 2026/03/10 20:59:54 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include <algorithm>   // std::find, std::lower_bound
-#include <climits>     // INT_MAX
-#include <ctime>       // std::clock
-#include <utility>     // std::pair, std::make_pair
+#include <algorithm> // std::find, std::lower_bound
+#include <climits> // INT_MAX
+#include <ctime> // std::clock
+#include <utility> // std::pair, std::make_pair
 
 PmergeMe::PmergeMe() : _vecTime(0.0), _deqTime(0.0) {}
 
-PmergeMe::PmergeMe(const PmergeMe& o)
-	: _vec(o._vec), _deq(o._deq),
-	_vecTime(o._vecTime), _deqTime(o._deqTime) {}
+PmergeMe::PmergeMe(const PmergeMe& other)
+	: _vec(other._vec), _deq(other._deq),
+	_vecTime(other._vecTime), _deqTime(other._deqTime) {}
 
-PmergeMe& PmergeMe::operator=(const PmergeMe& o)
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 {
-	if (this != &o) {
-		_vec     = o._vec;
-		_deq     = o._deq;
-		_vecTime = o._vecTime;
-		_deqTime = o._deqTime;
+	if (this != &other) {
+		_vec = other._vec;
+		_deq = other._deq;
+		_vecTime = other._vecTime;
+		_deqTime = other._deqTime;
 	}
 	return *this;
 }
@@ -55,13 +55,11 @@ void PmergeMe::parseInput(int argc, char** argv)
 
 		if (token.empty())
 			throw std::runtime_error("Error");
-
-		// Every character must be a digit (no sign, no dot)
 		for (size_t c = 0; c < token.size(); ++c)
+		{
 			if (!std::isdigit(static_cast<unsigned char>(token[c])))
 				throw std::runtime_error("Error");
-
-		// Convert — use long to detect int overflow
+		}
 		long val = 0;
 		for (size_t c = 0; c < token.size(); ++c)
 		{
@@ -69,14 +67,11 @@ void PmergeMe::parseInput(int argc, char** argv)
 			if (val > INT_MAX)
 				throw std::runtime_error("Error");
 		}
-
 		if (val <= 0)
 			throw std::runtime_error("Error");
-
 		_vec.push_back(static_cast<int>(val));
 		_deq.push_back(static_cast<int>(val));
 	}
-
 	if (_vec.empty())
 		throw std::runtime_error("Error");
 }
@@ -96,9 +91,8 @@ static std::vector<size_t> makeInsertOrder(size_t n)
 {
 	std::vector<size_t> order;
 	if (n <= 1)
-		return order;  // b1 is already inserted; nothing else to do for n==1
+		return order;
 
-	// Build Jacobsthal sequence until it exceeds n
 	std::vector<size_t> jac;
 	jac.push_back(1);
 	jac.push_back(3);
@@ -139,32 +133,32 @@ void PmergeMe::fjVector(std::vector<int>& v)
 	size_t n = v.size();
 	if (n <= 1) return;
 
-	// ── Step 2: straggler ────────────────────────────────────────────────────
 	bool odd = (n % 2 != 0);
 	int  straggler = 0;
-	if (odd) { straggler = v.back(); v.pop_back(); n--; }
+	if (odd)
+	{
+		straggler = v.back();
+		v.pop_back();
+		n--;
+	}
 
-	size_t pc = n / 2;  // pair count
+	size_t pc = n / 2;
 
-	// ── Step 3: form pairs (larger, smaller) ─────────────────────────────────
 	std::vector<std::pair<int, int> > pairs(pc);
 	for (size_t i = 0; i < pc; ++i)
 	{
-		int a = v[2 * i], b = v[2 * i + 1];
+		int a = v[2 * i];
+		int b = v[2 * i + 1];
 		pairs[i] = (a >= b) ? std::make_pair(a, b) : std::make_pair(b, a);
 	}
 
-	// ── Step 4: recursively sort the larger elements ──────────────────────────
 	std::vector<int> largers;
 	largers.reserve(pc);
 	for (size_t i = 0; i < pc; ++i)
 		largers.push_back(pairs[i].first);
 
-	fjVector(largers);  // recursive call — largers is now sorted
+	fjVector(largers);
 
-	// Reconstruct pairs in the new sorted order.
-	// We match each sorted larger value back to its pair using a used-flag array
-	// to handle (the rare case of) equal larger values correctly.
 	std::vector<std::pair<int, int> > sortedPairs(pc);
 	std::vector<bool> used(pc, false);
 	for (size_t i = 0; i < pc; ++i)
