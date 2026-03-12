@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:35:49 by gansari           #+#    #+#             */
-/*   Updated: 2026/03/09 15:35:58 by gansari          ###   ########.fr       */
+/*   Updated: 2026/03/12 15:23:36 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <iostream>
 #include <iomanip>
 
-// Print a container's contents to stdout
 template <typename Container>
 static void printSequence(const Container& c)
 {
@@ -40,11 +39,8 @@ int main(int argc, char* argv[])
 	{
 		PmergeMe pm;
 		pm.parseInput(argc, argv);
-
-		// Capture the "before" state (vector holds original order)
 		std::vector<int> before = pm.getVec();
 
-		// Sort both containers (timing happens inside)
 		pm.sortVector();
 		pm.sortDeque();
 
