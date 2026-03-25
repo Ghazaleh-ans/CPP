@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:33:56 by gansari           #+#    #+#             */
-/*   Updated: 2026/03/12 20:02:02 by gansari          ###   ########.fr       */
+/*   Updated: 2026/03/12 20:07:30 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,12 +163,10 @@ void PmergeMe::fjVector(std::vector<int>& v)
 
 	for (size_t k = 0; k < order.size(); ++k)
 	{
-		size_t idx = order[k] - 1;              // 0-based index into pairs
-		int    val  = pairs[idx].second;         // b to insert
-		size_t ubPos = aPos[idx];                // current position of its partner a
+		size_t idx = order[k] - 1;
+		int val = pairs[idx].second;
+		size_t ubPos = aPos[idx];
 
-		// Binary search in [chain.begin(), chain.begin() + ubPos + 1)
-		// i.e., only search up to and including the partner a's position.
 		std::vector<int>::iterator beg = chain.begin();
 		std::vector<int>::iterator ub  = beg + static_cast<long>(ubPos + 1);
 		std::vector<int>::iterator pos = std::lower_bound(beg, ub, val);
