@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:15:10 by gansari           #+#    #+#             */
-/*   Updated: 2026/04/20 13:37:02 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/20 16:28:44 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ bool ScalarConverter::isIntLiteral(const std::string& str) {
 bool ScalarConverter::isFloatLiteral(const std::string& str) {
 	if (str.empty())
 		return false;
-	if (str == "nanf" || str == "+inff" || str == "-inff" || str == "inff")
-		return true;
 	if (str[str.length() - 1] != 'f')
 		return false;
 	std::string numPart = str.substr(0, str.length() - 1);
@@ -85,8 +83,6 @@ bool ScalarConverter::isFloatLiteral(const std::string& str) {
 bool ScalarConverter::isDoubleLiteral(const std::string& str) {
 	if (str.empty())
 		return false;
-	if (str == "nan" || str == "+inf" || str == "-inf" || str == "inf")
-		return true;
 	size_t i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
@@ -203,13 +199,12 @@ void ScalarConverter::convertFromDouble(double d) {
 }
 
 void ScalarConverter::convert(const std::string& literal) {
-	// Handle char literal: 'c'
 	if (isCharLiteral(literal)) {
 		char c = literal[1];
 		convertFromChar(c);
 		return;
 	}
-	// Handle pseudo-literals
+
 	if (isPseudoLiteral(literal)) {
 		double value;
 		if (literal == "nan" || literal == "nanf") {
@@ -223,7 +218,7 @@ void ScalarConverter::convert(const std::string& literal) {
 		convertFromDouble(value);
 		return;
 	}
-	// Handle int literal
+
 	if (isIntLiteral(literal)) {
 		errno = 0;
 		char* end;
@@ -236,7 +231,7 @@ void ScalarConverter::convert(const std::string& literal) {
 		convertFromInt(static_cast<int>(value));
 		return;
 	}
-	// Handle float literal
+
 	if (isFloatLiteral(literal)) {
 		std::string numStr = literal.substr(0, literal.length() - 1);
 		errno = 0;
@@ -249,7 +244,7 @@ void ScalarConverter::convert(const std::string& literal) {
 		convertFromFloat(value);
 		return;
 	}
-	// Handle double literal
+
 	if (isDoubleLiteral(literal)) {
 		errno = 0;
 		char* end;
@@ -261,6 +256,6 @@ void ScalarConverter::convert(const std::string& literal) {
 		convertFromDouble(value);
 		return;
 	}
-	// Invalid input
+
 	std::cout << "Error: Invalid literal format" << std::endl;
 }
