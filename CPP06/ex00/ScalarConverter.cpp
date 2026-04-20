@@ -6,13 +6,12 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:15:10 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/09 16:20:34 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/20 13:37:02 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-// Non-instantiable -> private
 ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& other) {

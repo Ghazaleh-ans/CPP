@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 14:00:20 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/09 14:10:35 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/20 12:40:15 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 class ScalarConverter {
 private:
-	// Private -> prevents instantiation
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& other);
 	ScalarConverter& operator=(const ScalarConverter& other);
