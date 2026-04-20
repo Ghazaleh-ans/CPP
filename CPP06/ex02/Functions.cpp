@@ -6,11 +6,11 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:43:25 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/11 16:47:39 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/20 18:04:24 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "functions.hpp"
+#include "Functions.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
