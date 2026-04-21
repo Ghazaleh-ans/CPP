@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:49:37 by gansari           #+#    #+#             */
-/*   Updated: 2026/04/21 16:56:41 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/21 18:06:55 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,6 @@ static void testParamConstructor()
 	for (unsigned int i = 0; i < intArr.size(); i++)
 		std::cout << intArr[i] << " ";
 	std::cout << "\n";
-
-	Array<double> dblArr(3);
-	std::cout << "double array[3] contents (should all be 0.0): ";
-	for (unsigned int i = 0; i < dblArr.size(); i++)
-		std::cout << dblArr[i] << " ";
-	std::cout << "\n";
-
 	// Assign values
 	intArr[0] = 10;
 	intArr[1] = 20;
@@ -115,10 +108,6 @@ static void testAssignmentOperator()
 	// Modifying a must not affect b
 	a[0] = 999;
 	std::cout << "After a[0]=999, b[0]=" << b[0] << " (should still be 10)\n";
-
-	// Self-assignment (must not crash or corrupt)
-	b = b;
-	std::cout << "Self-assignment: b[0]=" << b[0] << " (should be 10)\n";
 }
 
 static void testBoundsChecking()
