@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:49:37 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/17 20:12:28 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/21 16:56:41 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void testDefaultConstructor()
 {
-	std::cout << "\n===== Test 1: Default Constructor =====" << std::endl;
+	std::cout << "\n--- Test 1: Default Constructor ---" << std::endl;
 	Array<int> arr;
 	std::cout << "Empty array size: " << arr.size() << "\n";
 
@@ -30,7 +30,7 @@ static void testDefaultConstructor()
 
 static void testParamConstructor()
 {
-	std::cout << "\n===== Test 2: Parameterized Constructor (value initialization) =====" << std::endl;
+	std::cout << "\n--- Test 2: Parameterized Constructor (value initialization) ---" << std::endl;
 	Array<int> intArr(5);
 	std::cout << "int array[5] contents (should all be 0): ";
 	for (unsigned int i = 0; i < intArr.size(); i++)
@@ -57,7 +57,7 @@ static void testParamConstructor()
 
 static void testCopyConstructor()
 {
-	std::cout << "\n===== Test 3: Copy Constructor (deep copy) =====" << std::endl;
+	std::cout << "\n--- Test 3: Copy Constructor (deep copy) ---" << std::endl;
 
 	Array<int> original(3);
 	original[0] = 1;
@@ -95,7 +95,7 @@ static void testCopyConstructor()
 
 static void testAssignmentOperator()
 {
-	std::cout << "\n===== Test 4: Assignment Operator (deep copy) =====" << std::endl;
+	std::cout << "\n--- Test 4: Assignment Operator (deep copy) ---" << std::endl;
 
 	Array<int> a(3);
 	a[0] = 10; a[1] = 20; a[2] = 30;
@@ -123,7 +123,7 @@ static void testAssignmentOperator()
 
 static void testBoundsChecking()
 {
-	std::cout << "\n===== Test 5: Bounds Checking =====" << std::endl;
+	std::cout << "\n--- Test 5: Bounds Checking ---" << std::endl;
 
 	Array<int> arr(3);
 	arr[0] = 42;
@@ -150,7 +150,7 @@ static void testBoundsChecking()
 
 static void testConstArray()
 {
-	std::cout << "\n===== Test 6: Const Array =====" << std::endl;
+	std::cout << "\n--- Test 6: Const Array ---" << std::endl;
 
 	// Fill a regular array, then const-assign it
 	Array<int> temp(3);
@@ -175,7 +175,7 @@ static void testConstArray()
 
 static void testStringArray()
 {
-	std::cout << "\n===== Test 7: Array<std::string> =====" << std::endl;
+	std::cout << "\n--- Test 7: Array<std::string> ---" << std::endl;
 
 	Array<std::string> strArr(3);
 
@@ -197,7 +197,7 @@ static void testStringArray()
 
 static void testZeroSize()
 {
-	std::cout << "\n===== Test 8: Zero-size array =====" << std::endl;
+	std::cout << "\n--- Test 8: Zero-size array ---" << std::endl;
 
 	Array<int> arr(0);
 	std::cout << "Array(0) size: " << arr.size() << "\n";
@@ -221,6 +221,5 @@ int main()
 	testStringArray();
 	testZeroSize();
 
-	std::cout << "\nAll tests passed!\n";
 	return 0;
 }
