@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 18:49:14 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/17 19:02:42 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/21 16:39:47 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ template <typename T>
 class Array
 {
 private:
-	T*				_data;   // pointer to heap-allocated array
-	unsigned int	_size;   // number of elements
+	T*				_data; // pointer to heap-allocated array
+	unsigned int	_size; // number of elements
 
 public:
 	Array() : _data(NULL), _size(0) {}
