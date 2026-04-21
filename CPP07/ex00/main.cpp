@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 15:19:34 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/17 16:01:58 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/21 15:58:47 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main(void)
 {
-	std::cout << "\n--- Subject Required Test ---\n";
+	std::cout << "\n--- Subject Tests ---\n";
 	int a = 2;
 	int b = 3;
 	::swap(a, b);
@@ -60,12 +60,6 @@ int main(void)
 	std::cout << "max(eq1, eq2) result address : " << &maxResult << std::endl;
 	std::cout << "max returns address of eq2 (second param)? "
 			<< (&maxResult == &eq2 ? "YES" : "NO") << std::endl;
-
-	std::cout << "\n--- Negative integers ---\n";
-	int neg1 = -10;
-	int neg2 = -5;
-	std::cout << "min(-10, -5) = " << ::min(neg1, neg2) << std::endl;  // -10
-	std::cout << "max(-10, -5) = " << ::max(neg1, neg2) << std::endl;  // -5
 
 	std::cout << "\n--- Explicit template instantiation ---\n";
 	std::cout << "Implicit: min(3, 5) = " << ::min(3, 5) << std::endl;
