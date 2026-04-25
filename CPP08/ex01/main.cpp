@@ -6,15 +6,15 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:40:43 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/19 18:33:54 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/25 22:41:43 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <vector>
 #include <list>
-#include <cstdlib>    // rand(), srand()
-#include <ctime>      // time()
+#include <cstdlib> // rand(), srand()
+#include <ctime> // time()
 #include "Span.hpp"
 
 static void printResult(const std::string& label, bool passed)
