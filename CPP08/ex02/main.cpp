@@ -6,14 +6,14 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 11:36:04 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/23 21:20:28 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/27 13:38:03 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <list>
 #include <vector>
-#include <algorithm>  // std::find
+#include <algorithm> // std::find
 #include "MutantStack.hpp"
 
 static void printResult(const std::string& label, bool passed)
@@ -23,7 +23,7 @@ static void printResult(const std::string& label, bool passed)
 
 static void test_subject_example()
 {
-	std::cout << "\n=== Test 1: Subject example ===" << std::endl;
+	std::cout << "\n--- Test 1: Subject example ---" << std::endl;
 
 	MutantStack<int> mstack;
 
@@ -59,7 +59,7 @@ static void test_subject_example()
 
 static void test_same_output_as_list()
 {
-	std::cout << "\n=== Test 2: MutantStack vs std::list same output ===" << std::endl;
+	std::cout << "\n--- Test 2: MutantStack vs std::list same output ---" << std::endl;
 
 	std::cout << "MutantStack output:" << std::endl;
 	MutantStack<int> mstack;
@@ -100,7 +100,7 @@ static void test_same_output_as_list()
 
 static void test_stack_operations()
 {
-	std::cout << "\n=== Test 3: Stack operations ===" << std::endl;
+	std::cout << "\n--- Test 3: Stack operations ---" << std::endl;
 
 	MutantStack<int> ms;
 
@@ -120,7 +120,7 @@ static void test_stack_operations()
 
 static void test_const_iterator()
 {
-	std::cout << "\n=== Test 4: const_iterator ===" << std::endl;
+	std::cout << "\n--- Test 4: const_iterator ---" << std::endl;
 
 	MutantStack<int> ms;
 	ms.push(1);
@@ -139,7 +139,7 @@ static void test_const_iterator()
 
 static void test_reverse_iterator()
 {
-	std::cout << "\n=== Test 5: reverse_iterator ===" << std::endl;
+	std::cout << "\n--- Test 5: reverse_iterator ---" << std::endl;
 
 	MutantStack<int> ms;
 	ms.push(1);
@@ -164,7 +164,7 @@ static void test_reverse_iterator()
 
 static void test_copy()
 {
-	std::cout << "\n=== Test 6: Copy constructor and assignment ===" << std::endl;
+	std::cout << "\n--- Test 6: Copy constructor and assignment ---" << std::endl;
 
 	MutantStack<int> original;
 	original.push(10);
@@ -187,7 +187,7 @@ static void test_copy()
 
 static void test_stl_algorithm()
 {
-	std::cout << "\n=== Test 7: STL algorithm on MutantStack ===" << std::endl;
+	std::cout << "\n--- Test 7: STL algorithm on MutantStack ---" << std::endl;
 
 	MutantStack<int> ms;
 	ms.push(4);
@@ -206,7 +206,7 @@ static void test_stl_algorithm()
 
 static void test_string_type()
 {
-	std::cout << "\n=== Test 8: MutantStack<std::string> ===" << std::endl;
+	std::cout << "\n--- Test 8: MutantStack<std::string> ---" << std::endl;
 
 	MutantStack<std::string> ms;
 	ms.push("hello");
