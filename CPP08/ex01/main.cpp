@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:40:43 by gansari           #+#    #+#             */
-/*   Updated: 2026/04/25 22:41:43 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/27 15:27:59 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,9 @@ static void printResult(const std::string& label, bool passed)
 	std::cout << (passed ? "[PASS] " : "[FAIL] ") << label << std::endl;
 }
 
-//  Test 1 – subject's own example (must output 2 and 14)
-
 static void test_subject_example()
 {
-	std::cout << "\n=== Test 1: Subject example ===" << std::endl;
+	std::cout << "\n--- Test 1: Subject example ---" << std::endl;
 
 	Span sp(5);
 	sp.addNumber(6);
@@ -45,11 +43,9 @@ static void test_subject_example()
 	printResult("longest  == 14", longest == 14);
 }
 
-//  Test 2 – overflow: adding more than N elements must throw
-
 static void test_overflow()
 {
-	std::cout << "\n=== Test 2: Adding beyond capacity ===" << std::endl;
+	std::cout << "\n--- Test 2: Adding beyond capacity ---" << std::endl;
 
 	Span sp(3);
 	sp.addNumber(1);
@@ -58,7 +54,7 @@ static void test_overflow()
 
 	try
 	{
-		sp.addNumber(4); // this must throw
+		sp.addNumber(4);
 		printResult("overflow throws", false);
 	}
 	catch (const std::exception& e)
@@ -68,13 +64,10 @@ static void test_overflow()
 	}
 }
 
-//  Test 3 – span on fewer than 2 elements must throw
-
 static void test_too_few_elements()
 {
-	std::cout << "\n=== Test 3: Span with fewer than 2 elements ===" << std::endl;
+	std::cout << "\n--- Test 3: Span with fewer than 2 elements ---" << std::endl;
 
-	// Empty span
 	{
 		Span sp(5);
 		try
@@ -89,7 +82,6 @@ static void test_too_few_elements()
 		}
 	}
 
-	// Only one element
 	{
 		Span sp(5);
 		sp.addNumber(42);
@@ -106,11 +98,9 @@ static void test_too_few_elements()
 	}
 }
 
-//  Test 4 – addRange with a vector iterator (10 000 numbers)
-
 static void test_add_range_large()
 {
-	std::cout << "\n=== Test 4: addRange with 10 000 numbers ===" << std::endl;
+	std::cout << "\n--- Test 4: addRange with 10 000 numbers ---" << std::endl;
 
 	const unsigned int N = 10000;
 	Span sp(N);
@@ -133,11 +123,9 @@ static void test_add_range_large()
 	printResult("longest > shortest", longest > shortest);
 }
 
-//  Test 5 – addRange with a std::list iterator
-
 static void test_add_range_list()
 {
-	std::cout << "\n=== Test 5: addRange from std::list ===" << std::endl;
+	std::cout << "\n--- Test 5: addRange from std::list ---" << std::endl;
 
 	std::list<int> lst;
 	lst.push_back(100);
@@ -154,11 +142,9 @@ static void test_add_range_list()
 	printResult("list addRange longest  == 150", sp.longestSpan()  == 150);
 }
 
-//  Test 6 – addRange overflow must throw
-
 static void test_add_range_overflow()
 {
-	std::cout << "\n=== Test 6: addRange overflow ===" << std::endl;
+	std::cout << "\n--- Test 6: addRange overflow ---" << std::endl;
 
 	Span sp(3);
 	sp.addNumber(1);
@@ -166,7 +152,7 @@ static void test_add_range_overflow()
 	std::vector<int> big;
 	big.push_back(2);
 	big.push_back(3);
-	big.push_back(4); // adding 3 more when only 2 slots remain → must throw
+	big.push_back(4);
 
 	try
 	{
@@ -180,11 +166,9 @@ static void test_add_range_overflow()
 	}
 }
 
-//  Test 7 – copy constructor and assignment operator
-
 static void test_copy()
 {
-	std::cout << "\n=== Test 7: Copy constructor and assignment ===" << std::endl;
+	std::cout << "\n--- Test 7: Copy constructor and assignment ---" << std::endl;
 
 	Span original(5);
 	original.addNumber(10);
@@ -198,16 +182,13 @@ static void test_copy()
 	printResult("copy shortest == original", copy.shortestSpan() == original.shortestSpan());
 	printResult("assigned longest == original", assigned.longestSpan() == original.longestSpan());
 
-	// Modifying copy should not affect original
 	copy.addNumber(100);
 	printResult("copy is independent from original", copy.size() != original.size());
 }
 
-//  Test 8 – two identical values: shortest span must be 0
-
 static void test_identical_values()
 {
-	std::cout << "\n=== Test 8: Identical values → shortest span == 0 ===" << std::endl;
+	std::cout << "\n--- Test 8: Identical values - shortest span == 0 ---" << std::endl;
 
 	Span sp(4);
 	sp.addNumber(5);
