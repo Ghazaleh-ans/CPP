@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 12:39:10 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/11 15:04:32 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/20 17:38:07 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,16 +133,16 @@ void test5_ModifyThroughAlias() {
 	std::cout << "Serialized (hex): 0x" << std::hex << serial << std::dec << std::endl;
 	
 	std::cout << "\nBefore modification:" << std::endl;
-	std::cout << "  Original name: " << original->name << std::endl;
-	std::cout << "  Alias name:    " << alias->name << std::endl;
-	
+	printData("Original", original);
+	printData("Alias", alias);
+
 	alias->name = "Jane Doe";
 	alias->hasPet = true;
 	alias->petName = "Rex";
 	
 	std::cout << "\nAfter modifying alias:" << std::endl;
-	std::cout << "  Original name: " << original->name << std::endl;
-	std::cout << "  Original pet:  " << original->petName << std::endl;
+	printData("Original", original);
+	printData("Alias", alias);
 	std::cout << "\nBoth point to same object: " << (original == alias ? "YES" : "NO") << std::endl;
 	
 	delete original;

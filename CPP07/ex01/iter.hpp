@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 16:24:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/17 17:57:18 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/21 16:17:12 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <cstddef>
 
-// Overload 1: non-const array
+// non-const array
 template <typename T, typename F>
 void iter(T* array, const std::size_t len, F func)
 {
@@ -23,7 +23,7 @@ void iter(T* array, const std::size_t len, F func)
 		func(array[i]);
 }
 
-// Overload 2: const array  (prevents modifying elements)
+// const array
 template <typename T, typename F>
 void iter(const T* array, const std::size_t len, F func)
 {
