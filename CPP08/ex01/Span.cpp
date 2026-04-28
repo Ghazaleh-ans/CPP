@@ -6,14 +6,14 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:40:20 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/19 18:07:14 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/25 23:17:04 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <algorithm>   // std::sort, std::min_element, std::max_element
+#include <algorithm> // std::sort, std::min_element, std::max_element
 #include <stdexcept>
-#include <climits>     // INT_MAX
+#include <climits> // INT_MAX
 
 Span::Span() {}
 

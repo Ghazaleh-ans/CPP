@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:05:13 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/19 15:31:36 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/22 14:33:29 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ static void printResult(const std::string& label, bool passed)
 	std::cout << (passed ? "[PASS] " : "[FAIL] ") << label << std::endl;
 }
 
-//  Test 1 – basic find in std::vector (success)
-
 static void test_vector_found()
 {
-	std::cout << "\n=== Test 1: std::vector – value present ===" << std::endl;
+	std::cout << "\n--- Test 1: std::vector – value present ---" << std::endl;
 
 	std::vector<int> v;
 	v.push_back(10);
@@ -47,11 +45,9 @@ static void test_vector_found()
 	}
 }
 
-//  Test 2 – value NOT in vector → must throw
-
 static void test_vector_not_found()
 {
-	std::cout << "\n=== Test 2: std::vector – value absent ===" << std::endl;
+	std::cout << "\n--- Test 2: std::vector – value absent ---" << std::endl;
 
 	std::vector<int> v;
 	v.push_back(1);
@@ -70,11 +66,9 @@ static void test_vector_not_found()
 	}
 }
 
-//  Test 3 – std::list
-
 static void test_list_found()
 {
-	std::cout << "\n=== Test 3: std::list – value present ===" << std::endl;
+	std::cout << "\n--- Test 3: std::list – value present ---" << std::endl;
 
 	std::list<int> lst;
 	lst.push_back(5);
@@ -95,11 +89,9 @@ static void test_list_found()
 	}
 }
 
-//  Test 4 – std::deque
-
 static void test_deque_found()
 {
-	std::cout << "\n=== Test 4: std::deque – value present ===" << std::endl;
+	std::cout << "\n--- Test 4: std::deque – value present ---" << std::endl;
 
 	std::deque<int> dq;
 	dq.push_back(100);
@@ -119,11 +111,9 @@ static void test_deque_found()
 	}
 }
 
-//  Test 5 – first occurrence only (duplicates)
-
 static void test_first_occurrence()
 {
-	std::cout << "\n=== Test 5: First occurrence with duplicates ===" << std::endl;
+	std::cout << "\n--- Test 5: First occurrence with duplicates ---" << std::endl;
 
 	std::vector<int> v;
 	v.push_back(7);
@@ -133,7 +123,7 @@ static void test_first_occurrence()
 	try
 	{
 		std::vector<int>::iterator it = easyfind(v, 7);
-		// it should point to the FIRST element (index 0)
+		// it should point to the first element
 		bool isFirst = (it == v.begin());
 		std::cout << "Iterator points to first element: " << (isFirst ? "yes" : "no") << std::endl;
 		printResult("first occurrence returned", isFirst);
@@ -145,11 +135,9 @@ static void test_first_occurrence()
 	}
 }
 
-//  Test 6 – empty container must throw
-
 static void test_empty_container()
 {
-	std::cout << "\n=== Test 6: Empty container ===" << std::endl;
+	std::cout << "\n--- Test 6: Empty container ---" << std::endl;
 
 	std::vector<int> v; // empty
 
@@ -165,18 +153,16 @@ static void test_empty_container()
 	}
 }
 
-//  Test 7 – const container (const overload)
-
 static void test_const_container()
 {
-	std::cout << "\n=== Test 7: const container ===" << std::endl;
+	std::cout << "\n--- Test 7: const container ---" << std::endl;
 
 	std::vector<int> tmp;
 	tmp.push_back(11);
 	tmp.push_back(22);
 	tmp.push_back(33);
 
-	const std::vector<int>& cv = tmp; // const reference
+	const std::vector<int>& cv = tmp;
 
 	try
 	{
