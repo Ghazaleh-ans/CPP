@@ -6,11 +6,11 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 16:47:47 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/11 17:01:20 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/20 18:11:45 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "functions.hpp"
+#include "Functions.hpp"
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -49,9 +49,7 @@ int	main(void)
 	std::cout << "\nTrying to identify NULL pointer:" << std::endl;
 	Base* nullPtr = NULL;
 	identify(nullPtr);  // Should handle gracefully
-	
-	std::cout << "\n=== Memory Cleanup ===" << std::endl;
-	std::cout << "\nCleaning up all dynamically allocated objects..." << std::endl;
+
 	for (int i = 0; i < 10; i++)
 	{
 		delete objects[i];

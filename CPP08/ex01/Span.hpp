@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 16:39:57 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/19 18:34:45 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/25 23:16:34 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ public:
 	Span(const Span& other);
 	Span& operator=(const Span& other);
 	~Span();
-
 	class FullException : public std::exception
 	{
 	public:
@@ -60,10 +59,11 @@ public:
 
 	void addNumber(int n);
 
+	// supports list too
 	template <typename Iterator>
 	void addRange(Iterator first, Iterator last)
 	{
-		unsigned int rangeSize = static_cast<unsigned int>(std::distance(first, last));
+		unsigned int rangeSize = static_cast<unsigned int>(std::distance(first, last)); //ptrdiff_t
 		if (_data.size() + rangeSize > _maxSize)
 			throw RangeOverflowException();
 		_data.insert(_data.end(), first, last);
