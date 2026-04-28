@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:25:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/04/28 16:28:53 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/28 17:43:23 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ bool BitcoinExchange::isValidValue(const std::string& token, double& out)
 	for (size_t i = 0; i < token.size(); ++i)
 	{
 		char c = token[i];
+		if (i == 0 && c == '+')
+			continue;
 		if (c == '.')
 		{
 			if (hasDot) return false;
@@ -241,7 +243,7 @@ void BitcoinExchange::processInput(const std::string& inputPath) const
 		}
 		if (!isValidValue(valueStr, value))
 		{
-			std::cerr << "Error: bad input => " << date << std::endl;
+			std::cerr << "Error: bad input => " << valueStr << std::endl;
 			continue;
 		}
 		if (value > 1000.0)
