@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:25:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/24 17:41:48 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/28 16:28:53 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <cstdlib>   // std::atof
+#include <cstdlib> // std::atof
 #include <cerrno>
 
 BitcoinExchange::BitcoinExchange() {}
@@ -58,7 +58,7 @@ bool BitcoinExchange::isValidDate(const std::string& date)
 	if (month < 1 || month > 12 || day < 1)
 		return false;
 
-	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	if (isLeapYear(year))
 		daysInMonth[1] = 29;
 
@@ -72,13 +72,10 @@ bool BitcoinExchange::isValidValue(const std::string& token, double& out)
 {
 	if (token.empty())
 		return false;
-	// (allow digits, '.', '-', '+')
 	bool hasDot = false;
 	for (size_t i = 0; i < token.size(); ++i)
 	{
 		char c = token[i];
-		if (i == 0 && (c == '-' || c == '+'))
-			continue;
 		if (c == '.')
 		{
 			if (hasDot) return false;
@@ -163,7 +160,7 @@ void BitcoinExchange::loadDatabase(const std::string& dbPath)
 
 	while (std::getline(file, line))
 	{
-		if (!line.empty() && line[line.size()-1] == '\r')
+		if (!line.empty() && line[line.size()-1] == '\r') //window text file new line: \r\n
 			line.erase(line.size()-1);
 		if (line.empty())
 			continue;
@@ -237,14 +234,14 @@ void BitcoinExchange::processInput(const std::string& inputPath) const
 		}
 
 		double value = 0.0;
-		if (!isValidValue(valueStr, value))
-		{
-			std::cerr << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		if (value < 0.0 || (!valueStr.empty() && valueStr[0] == '-'))
+		if (!valueStr.empty() && valueStr[0] == '-')
 		{
 			std::cerr << "Error: not a positive number." << std::endl;
+			continue;
+		}
+		if (!isValidValue(valueStr, value))
+		{
+			std::cerr << "Error: bad input => " << date << std::endl;
 			continue;
 		}
 		if (value > 1000.0)
