@@ -17,6 +17,7 @@
 #include <sstream>
 #include <cstdlib> // std::atof
 #include <cerrno>
+#include <cctype>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -106,10 +107,9 @@ void BitcoinExchange::parseCsvLine(const std::string& line,
 	if (!std::getline(ss, date, ',') || !std::getline(ss, rateStr))
 		throw std::runtime_error("Malformed CSV line: " + line);
 
-	while (!rateStr.empty() && (rateStr[rateStr.size()-1] == '\r'
-							|| rateStr[rateStr.size()-1] == ' '))
+	while (!rateStr.empty() && std::isspace((unsigned char)rateStr[rateStr.size()-1]))
 		rateStr.erase(rateStr.size()-1);
-	while (!date.empty() && (date[date.size()-1] == ' '))
+	while (!date.empty() && std::isspace((unsigned char)date[date.size()-1]))
 		date.erase(date.size()-1);
 
 	char* endptr;
@@ -130,10 +130,9 @@ void BitcoinExchange::parseInputLine(const std::string& line,
 	date = line.substr(0, sep);
 	valueStr = line.substr(sep + 3);
 
-	while (!date.empty() && date[date.size()-1] == ' ')
+	while (!date.empty() && std::isspace((unsigned char)date[date.size()-1]))
 		date.erase(date.size()-1);
-	while (!valueStr.empty() && (valueStr[valueStr.size()-1] == '\r'
-							|| valueStr[valueStr.size()-1] == ' '))
+	while (!valueStr.empty() && std::isspace((unsigned char)valueStr[valueStr.size()-1]))
 		valueStr.erase(valueStr.size()-1);
 }
 
@@ -162,7 +161,7 @@ void BitcoinExchange::loadDatabase(const std::string& dbPath)
 
 	while (std::getline(file, line))
 	{
-		if (!line.empty() && line[line.size()-1] == '\r') //window text file new line: \r\n
+		if (!line.empty() && std::isspace((unsigned char)line[line.size()-1]))
 			line.erase(line.size()-1);
 		if (line.empty())
 			continue;
@@ -204,7 +203,7 @@ void BitcoinExchange::processInput(const std::string& inputPath) const
 
 	while (std::getline(file, line))
 	{
-		if (!line.empty() && line[line.size()-1] == '\r')
+		if (!line.empty() && std::isspace((unsigned char)line[line.size()-1]))
 			line.erase(line.size()-1);
 		if (line.empty())
 			continue;
