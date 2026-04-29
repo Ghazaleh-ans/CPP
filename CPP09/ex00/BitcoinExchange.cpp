@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:25:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/04/28 17:43:23 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/29 14:13:10 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ void BitcoinExchange::parseCsvLine(const std::string& line,
 void BitcoinExchange::parseInputLine(const std::string& line,
 									std::string& date, std::string& valueStr)
 {
-	// Find the " | " separator
 	size_t sep = line.find(" | ");
 	if (sep == std::string::npos)
 		throw std::runtime_error("bad input => " + line);
