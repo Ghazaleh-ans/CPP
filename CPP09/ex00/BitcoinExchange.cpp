@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:25:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/04/29 14:13:10 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/30 19:42:17 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <cstdlib> // std::atof
+#include <cstdlib>
 #include <cerrno>
 #include <cctype>
 
