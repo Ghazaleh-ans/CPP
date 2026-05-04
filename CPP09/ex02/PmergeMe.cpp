@@ -52,6 +52,8 @@ void PmergeMe::parseInput(int argc, char** argv)
 
 		if (token.empty())
 			throw std::runtime_error("Error");
+		if (token.size() > 1 && token[0] == '0')
+			throw std::runtime_error("Error");
 		for (size_t c = 0; c < token.size(); ++c)
 		{
 			if (!std::isdigit(static_cast<unsigned char>(token[c])))
@@ -69,8 +71,6 @@ void PmergeMe::parseInput(int argc, char** argv)
 		_vec.push_back(static_cast<int>(val));
 		_deq.push_back(static_cast<int>(val));
 	}
-	// if (_vec.empty())
-	// 	throw std::runtime_error("Error");
 }
 
 static std::vector<size_t> makeInsertOrder(size_t n)
