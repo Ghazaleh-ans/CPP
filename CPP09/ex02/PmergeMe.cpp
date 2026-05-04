@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:33:56 by gansari           #+#    #+#             */
-/*   Updated: 2026/05/04 15:03:46 by gansari          ###   ########.fr       */
+/*   Updated: 2026/05/04 15:21:35 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,6 @@ void PmergeMe::fjVector(std::vector<int>& v)
 				aPos[j]++;
 	}
 
-	// ── Step 7: insert straggler ──────────────────────────────────────────────
 	if (odd)
 	{
 		std::vector<int>::iterator pos =
@@ -187,11 +186,6 @@ void PmergeMe::fjVector(std::vector<int>& v)
 	v = chain;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Ford-Johnson sort — std::deque<int>
-//  Identical algorithm; only the container type changes.
-// ─────────────────────────────────────────────────────────────────────────────
-
 void PmergeMe::fjDeque(std::deque<int>& d)
 {
 	size_t n = d.size();
@@ -199,14 +193,19 @@ void PmergeMe::fjDeque(std::deque<int>& d)
 
 	bool odd = (n % 2 != 0);
 	int  straggler = 0;
-	if (odd) { straggler = d.back(); d.pop_back(); n--; }
+	if (odd) {
+		straggler = d.back();
+		d.pop_back();
+		n--;
+	}
 
 	size_t pc = n / 2;
 
 	std::vector<std::pair<int, int> > pairs(pc);
 	for (size_t i = 0; i < pc; ++i)
 	{
-		int a = d[2 * i], b = d[2 * i + 1];
+		int a = d[2 * i];
+		int b = d[2 * i + 1];
 		pairs[i] = (a >= b) ? std::make_pair(a, b) : std::make_pair(b, a);
 	}
 
