@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 14:25:03 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/24 17:41:48 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/30 19:42:17 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <cstdlib>   // std::atof
+#include <cstdlib>
 #include <cerrno>
+#include <cctype>
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -58,7 +59,7 @@ bool BitcoinExchange::isValidDate(const std::string& date)
 	if (month < 1 || month > 12 || day < 1)
 		return false;
 
-	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	if (isLeapYear(year))
 		daysInMonth[1] = 29;
 
@@ -72,12 +73,11 @@ bool BitcoinExchange::isValidValue(const std::string& token, double& out)
 {
 	if (token.empty())
 		return false;
-	// (allow digits, '.', '-', '+')
 	bool hasDot = false;
 	for (size_t i = 0; i < token.size(); ++i)
 	{
 		char c = token[i];
-		if (i == 0 && (c == '-' || c == '+'))
+		if (i == 0 && c == '+')
 			continue;
 		if (c == '.')
 		{
@@ -107,10 +107,9 @@ void BitcoinExchange::parseCsvLine(const std::string& line,
 	if (!std::getline(ss, date, ',') || !std::getline(ss, rateStr))
 		throw std::runtime_error("Malformed CSV line: " + line);
 
-	while (!rateStr.empty() && (rateStr[rateStr.size()-1] == '\r'
-							|| rateStr[rateStr.size()-1] == ' '))
+	while (!rateStr.empty() && std::isspace((unsigned char)rateStr[rateStr.size()-1]))
 		rateStr.erase(rateStr.size()-1);
-	while (!date.empty() && (date[date.size()-1] == ' '))
+	while (!date.empty() && std::isspace((unsigned char)date[date.size()-1]))
 		date.erase(date.size()-1);
 
 	char* endptr;
@@ -123,7 +122,6 @@ void BitcoinExchange::parseCsvLine(const std::string& line,
 void BitcoinExchange::parseInputLine(const std::string& line,
 									std::string& date, std::string& valueStr)
 {
-	// Find the " | " separator
 	size_t sep = line.find(" | ");
 	if (sep == std::string::npos)
 		throw std::runtime_error("bad input => " + line);
@@ -131,10 +129,9 @@ void BitcoinExchange::parseInputLine(const std::string& line,
 	date = line.substr(0, sep);
 	valueStr = line.substr(sep + 3);
 
-	while (!date.empty() && date[date.size()-1] == ' ')
+	while (!date.empty() && std::isspace((unsigned char)date[date.size()-1]))
 		date.erase(date.size()-1);
-	while (!valueStr.empty() && (valueStr[valueStr.size()-1] == '\r'
-							|| valueStr[valueStr.size()-1] == ' '))
+	while (!valueStr.empty() && std::isspace((unsigned char)valueStr[valueStr.size()-1]))
 		valueStr.erase(valueStr.size()-1);
 }
 
@@ -163,7 +160,7 @@ void BitcoinExchange::loadDatabase(const std::string& dbPath)
 
 	while (std::getline(file, line))
 	{
-		if (!line.empty() && line[line.size()-1] == '\r')
+		if (!line.empty() && std::isspace((unsigned char)line[line.size()-1]))
 			line.erase(line.size()-1);
 		if (line.empty())
 			continue;
@@ -205,7 +202,7 @@ void BitcoinExchange::processInput(const std::string& inputPath) const
 
 	while (std::getline(file, line))
 	{
-		if (!line.empty() && line[line.size()-1] == '\r')
+		if (!line.empty() && std::isspace((unsigned char)line[line.size()-1]))
 			line.erase(line.size()-1);
 		if (line.empty())
 			continue;
@@ -237,14 +234,14 @@ void BitcoinExchange::processInput(const std::string& inputPath) const
 		}
 
 		double value = 0.0;
-		if (!isValidValue(valueStr, value))
-		{
-			std::cerr << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		if (value < 0.0 || (!valueStr.empty() && valueStr[0] == '-'))
+		if (!valueStr.empty() && valueStr[0] == '-')
 		{
 			std::cerr << "Error: not a positive number." << std::endl;
+			continue;
+		}
+		if (!isValidValue(valueStr, value))
+		{
+			std::cerr << "Error: bad input => " << valueStr << std::endl;
 			continue;
 		}
 		if (value > 1000.0)

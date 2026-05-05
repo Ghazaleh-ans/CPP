@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:33:56 by gansari           #+#    #+#             */
-/*   Updated: 2026/03/12 20:07:30 by gansari          ###   ########.fr       */
+/*   Updated: 2026/05/04 15:21:35 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,13 @@ double PmergeMe::getDeqTime() const { return _deqTime; }
 
 void PmergeMe::parseInput(int argc, char** argv)
 {
-	if (argc < 2)
-		throw std::runtime_error("Error");
-
 	for (int i = 1; i < argc; ++i)
 	{
 		std::string token(argv[i]);
 
 		if (token.empty())
+			throw std::runtime_error("Error");
+		if (token.size() > 1 && token[0] == '0')
 			throw std::runtime_error("Error");
 		for (size_t c = 0; c < token.size(); ++c)
 		{
@@ -67,13 +66,11 @@ void PmergeMe::parseInput(int argc, char** argv)
 			if (val > INT_MAX)
 				throw std::runtime_error("Error");
 		}
-		if (val <= 0)
+		if (val == 0)
 			throw std::runtime_error("Error");
 		_vec.push_back(static_cast<int>(val));
 		_deq.push_back(static_cast<int>(val));
 	}
-	if (_vec.empty())
-		throw std::runtime_error("Error");
 }
 
 static std::vector<size_t> makeInsertOrder(size_t n)
@@ -150,7 +147,7 @@ void PmergeMe::fjVector(std::vector<int>& v)
 	pairs = sortedPairs;
 
 	std::vector<int> chain;
-	chain.reserve(n + 1);
+	chain.reserve(n + 1); //to avoid reallocation with odd numbers
 	chain.push_back(pairs[0].second);
 	for (size_t i = 0; i < pc; ++i)
 		chain.push_back(pairs[i].first);
@@ -174,13 +171,11 @@ void PmergeMe::fjVector(std::vector<int>& v)
 		size_t insertIdx = static_cast<size_t>(pos - chain.begin());
 		chain.insert(pos, val);
 
-		// Shift aPos for all a's that are at or after the insertion point.
 		for (size_t j = 0; j < pc; ++j)
 			if (aPos[j] >= insertIdx)
 				aPos[j]++;
 	}
 
-	// ── Step 7: insert straggler ──────────────────────────────────────────────
 	if (odd)
 	{
 		std::vector<int>::iterator pos =
@@ -191,11 +186,6 @@ void PmergeMe::fjVector(std::vector<int>& v)
 	v = chain;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-//  Ford-Johnson sort — std::deque<int>
-//  Identical algorithm; only the container type changes.
-// ─────────────────────────────────────────────────────────────────────────────
-
 void PmergeMe::fjDeque(std::deque<int>& d)
 {
 	size_t n = d.size();
@@ -203,14 +193,19 @@ void PmergeMe::fjDeque(std::deque<int>& d)
 
 	bool odd = (n % 2 != 0);
 	int  straggler = 0;
-	if (odd) { straggler = d.back(); d.pop_back(); n--; }
+	if (odd) {
+		straggler = d.back();
+		d.pop_back();
+		n--;
+	}
 
 	size_t pc = n / 2;
 
 	std::vector<std::pair<int, int> > pairs(pc);
 	for (size_t i = 0; i < pc; ++i)
 	{
-		int a = d[2 * i], b = d[2 * i + 1];
+		int a = d[2 * i];
+		int b = d[2 * i + 1];
 		pairs[i] = (a >= b) ? std::make_pair(a, b) : std::make_pair(b, a);
 	}
 

@@ -6,7 +6,7 @@
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 14:54:37 by gansari           #+#    #+#             */
-/*   Updated: 2026/02/27 15:11:27 by gansari          ###   ########.fr       */
+/*   Updated: 2026/04/29 16:50:42 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int RPN::evaluate(const std::string& expression) const
 
 	while (ss >> token)
 	{
-		if (token.size() == 1 && std::isdigit(token[0]))
+		if (token.size() == 1 && std::isdigit((unsigned char)token[0]))
 		{
 			stack.push(token[0] - '0');
 			continue;
