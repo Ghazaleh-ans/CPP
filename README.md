@@ -6,7 +6,6 @@
 
 ![C++](https://img.shields.io/badge/C++-98-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![42](https://img.shields.io/badge/42-School-000000?style=for-the-badge)
-![Norm](https://img.shields.io/badge/Norminette-passing-brightgreen?style=for-the-badge)
 ![Valgrind](https://img.shields.io/badge/Valgrind-no%20leaks-brightgreen?style=for-the-badge)
 
 </div>
