@@ -244,9 +244,7 @@ valgrind --leak-check=full --track-origins=yes ./program
 ```
 cpp-modules/
 ├── CPP00/
-│   ├── ex00/   # Megaphone
-│   ├── ex01/   # PhoneBook
-│   └── ex02/   # Account
+│   ├── ex00/ - ex02/
 ├── CPP01/
 │   ├── ex00/ – ex06/
 ├── CPP02/
@@ -264,9 +262,7 @@ cpp-modules/
 ├── CPP08/
 │   ├── ex00/ – ex02/
 ├── CPP09/
-│   ├── ex00/   # Bitcoin Exchange
-│   ├── ex01/   # RPN Calculator
-│   └── ex02/   # PmergeMe (Ford-Johnson)
+│   ├── ex00/ - ex02/
 └── README.md
 ```
 
